@@ -1,8 +1,21 @@
+import "../components/Header.css" 
+
+
 function Header() {
     return (
-        <div>
-            <h1>Kanzu Police Force</h1>
-        </div>
+        <>
+    <header>
+    
+            <h1>KANZU POLICE FORCE</h1>
+            <h3><em>Code and Serve</em></h3>
+    
+        <div className="flag">
+            <span className="black"></span>
+            <span className="yellow"></span>
+            <span className="red"></span>
+         </div>
+    </header>
+    </>
     )
 }
 

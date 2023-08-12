@@ -14,8 +14,10 @@
     "@mantine/core": "^6.0.19",
     "@mantine/form": "^6.0.19",
     "@mantine/hooks": "^6.0.19",
+    "formbase": "^12.0.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

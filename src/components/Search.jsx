@@ -1,23 +1,115 @@
-// import { useForm } from "react-hook-form";
+// import React from "react";
+// import { useForm } from "@mantine/form";
+// import {
+//   Box,
+//   TextInput,
+//   NumberInput,
+//   Button,
+//   Group,
+//   Divider,
+// } from "@mantine/core";
+
 // function Search() {
-//   const {
-//     register,
-//     handleSubmit,
-//     watch,
-//     formState: { errors },
-//   } = useForm();
+//   const form = useForm({
+//     initialValues: { name: "", IDnumber: undefined },
+
+//     validate: (values) => ({
+//       name: values.name === undefined ? "Name Is Required" : null,
+//       IDnumber:
+//         values.IDnumber === undefined
+//           ? "ID Number is Required"
+//           : values.IDnumber.length <= 9
+//           ? "Enter A Valid ID number"
+//           : null,
+//     }),
+//   });
+
 //   return (
-//     <>
-//       <form onSubmit={handleSubmit((data) => console.log(data))}>
-//         <input {...register("firstName")} />
-//         <input {...register("lastName", { required: true })} />
-//         {errors.lastName && <p>Last name is required.</p>}
-//         <input {...register("age", { pattern: /\d+/ })} />
-//         {errors.age && <p>Please enter number for age.</p>}
-//         <input type="submit" />
-//       </form>
-//     </>
+//     <div style={border}>
+//       <Box maxWidth={340} mx="50px">
+//         <form onSubmit={form.onSubmit((values) => console.log(values))}>
+//           <TextInput
+//             label="NAME"
+//             placeholder="Name"
+//             error={form.errors.name}
+//             {...form.getInputProps("NAME")}
+//           />
+//           <NumberInput
+//             mt="sm"
+//             label="ID NUMBER"
+//             placeholder="ID Number"
+//             error={form.errors.IDnumber}
+//             {...form.getInputProps("IDnumber")}
+//           />
+
+//           <Group position="right" mt="md">
+//             <Button type="submit">Search</Button>
+//           </Group>
+//         </form>
+//       </Box>
+//     </div>
 //   );
 // }
 
 // export default Search;
+
+import React from "react";
+import { useForm } from "@mantine/form";
+import { Box, TextInput, NumberInput, Button, Group } from "@mantine/core";
+import Header from "./Header";
+const border = {
+  border: "2px solid rgba(0, 0, 0, 0.1)",
+  padding: "20px",
+  borderRadius: "8px",
+  maxWidth: "400px",
+  margin: "80px auto", // Adjust the margin to move it down
+  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", // Thicker shadow
+};
+
+function Search() {
+  const form = useForm({
+    initialValues: { NAME: "", IDnumber: undefined },
+    validate: (values) => ({
+      NAME: values.NAME.length < 2 ? "Enter Valid Name" : null,
+      IDnumber:
+        values.IDnumber === undefined
+          ? "ID Number is Required"
+          : values.IDnumber.length !== 9
+          ? "Enter A Valid ID number"
+          : null,
+    }),
+  });
+
+  return (
+    <div>
+      <Header />
+
+      <div style={border}>
+        <Box maxWidth={340} mx="50px">
+          <h2>Search Form</h2>
+          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <TextInput
+              label="NAME"
+              placeholder="Name"
+              error={form.errors.NAME}
+              {...form.getInputProps("NAME")}
+            />
+            <NumberInput
+              mt="sm"
+              label="ID NUMBER"
+              placeholder="ID Number"
+              error={form.errors.IDnumber}
+              {...form.getInputProps("IDnumber")}
+            />
+
+            <Group position="right" mt="md">
+              <Button type="submit">Search</Button>
+            </Group>
+          </form>
+        </Box>
+      </div>
+    </div>
+  );
+}
+
+export default Search;

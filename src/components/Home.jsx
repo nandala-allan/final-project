@@ -2,12 +2,16 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "../components/Home.css";
 import Footer from "./Footer";
-
+import Search from "./Search";
+import { func } from "prop-types";
 function Home() {
   let redirect = useNavigate();
 
-  function search() {
+  function form() {
     redirect("/form");
+  }
+  function search() {
+    redirect("./Search");
   }
 
   return (
@@ -18,7 +22,7 @@ function Home() {
         <div className="card-info">
           <h2>New Form</h2>
           <p>Make a complaint about a crime</p>
-          <button type="submit" onClick={search}>
+          <button type="submit" onClick={form}>
             Generate New
           </button>
         </div>
@@ -26,7 +30,9 @@ function Home() {
         <div className="card-info">
           <h2>Search Form</h2>
           <p>Search for a complaint form</p>
-          <button type="submit">Search</button>
+          <button type="submit" onClick={search}>
+            Search
+          </button>
         </div>
       </div>
       <div className="content">

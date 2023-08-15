@@ -1,33 +1,30 @@
 header {
-    background-color:#898686;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-   
+  background-color: #898686;
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
 }
-header h3{
-    font-size: 25px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    height: auto;
+header h3 {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  height: auto;
 }
 
-span{
-    display: block;
+span {
+  display: block;
 }
 .black {
-    background-color: black;
-    height:5px;
+  background-color: black;
+  height: 5px;
 }
 .yellow {
-    background-color: yellow;
-    height:5px;
+  background-color: yellow;
+  height: 5px;
 }
 .red {
-    background-color: red;
-    height:5px;
-    
+  background-color: red;
+  height: 5px;
 }
-

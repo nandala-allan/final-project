@@ -1,3 +1,18 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a4343;
+  min-height: 80vh;
+  padding: 50px;
+  gap: 20px;
+}
+
+.home h1 {
+  text-align: center;
+  padding: 20px;
+  color: #ffffff;
+}
+
 .cards {
   display: flex;
   justify-content: center;
@@ -5,8 +20,21 @@
 }
 
 .card-info {
-  width: 30%;
+  width: 20%;
   border: 1px solid black;
   border-radius: 5px;
   padding: 20px;
+}
+
+button {
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.content p {
+  text-align: center;
+  color: #ffffff;
 }

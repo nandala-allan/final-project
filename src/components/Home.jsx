@@ -1,14 +1,25 @@
+import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 import "../components/Home.css";
 
-function App() {
+function Home() {
+  let redirect = useNavigate();
+
+  function search() {
+    redirect("/form");
+  }
+
   return (
     <>
+      <Header />
       <h1>Welcome to Kazu Police Force</h1>
       <div className="cards">
         <div className="card-info">
           <h2>New Form</h2>
           <p>Make a complaint about a crime</p>
-          <button type="submit">Generate New</button>
+          <button type="submit" onClick={search}>
+            Generate New
+          </button>
         </div>
 
         <div className="card-info">
@@ -29,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

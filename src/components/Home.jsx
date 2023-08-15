@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "../components/Home.css";
+import Footer from "./Footer";
 
 function Home() {
   let redirect = useNavigate();
@@ -36,6 +37,7 @@ function Home() {
           Optio, officiis.
         </p>
       </div>
+      <Footer />
     </>
   );
 }

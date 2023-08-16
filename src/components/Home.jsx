@@ -19,7 +19,7 @@ function Home() {
             <h2>New Form</h2>
             <p>Make a complaint about a crime</p>
             <button type="submit" onClick={search}>
-              Generate New
+              Generate
             </button>
           </div>
 

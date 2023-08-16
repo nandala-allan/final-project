@@ -30,6 +30,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  text-align: center;
 }
 
 button {
@@ -45,4 +46,19 @@ button {
 .content p {
   text-align: center;
   color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .card-info {
+    width: 100%;
+  }
+
+  .home h1 {
+    font-size: 18px;
+  }
 }

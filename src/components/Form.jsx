@@ -14,7 +14,7 @@ function Form() {
   // const ref = useRef<HTMLInputElement>
   const [value, setValue] = useState("");
   return (
-    <div style={{ width: "1440px", padding: 50, margin: "auto" }}>
+    <div style={{ width: "98%", padding: 50, margin: "auto" }}>
       <h1 style={{ textAlign: "center", padding: 20 }}>COMPLAINER</h1>
       <div
         style={{

@@ -3,18 +3,67 @@ import { useState } from "react";
 import { DateInput } from "@mantine/dates";
 import { Select } from "@mantine/core";
 import { Textarea } from "@mantine/core";
+import { NumberInput } from '@mantine/core';
 // import { useRef } from 'react';
 import { Button } from "@mantine/core";
 import { ActionIcon } from "@mantine/core";
 import { TimeInput } from "@mantine/dates";
 import { IconClock } from "@tabler/icons-react";
-// import { RadioGroup, Radio } from '@mantine/core';
-// import React, { useState } from 'react';
+import {  Radio,Group} from '@mantine/core';
 function Form() {
-  // const ref = useRef<HTMLInputElement>
-  const [value, setValue] = useState("");
+const [formData,setFormData]=useState({
+ complainerPhoto:"",
+  referenceNumber:"",
+  complainerName:"",
+  regestredData:"",
+  complainerAge:"",
+  complainerTelephone:"",
+  others:"",
+  complainerPlaceOfBirth:"",
+  complainerResidenc:"",
+  complainerId:"",
+  complainerEmail:"",
+  // offence:"",
+  victimName:"",
+  victimTelephone:"",
+  victimResidenc:"",
+  caseDetail:"",
+  happenedDate:"",
+  // happenedTime:"",
+  crimeScene:"",
+  witnessName:"",
+  witnessTel:"",
+  injuries:"",
+  // medicalAssistance:"",
+  rank:"",
+  officerName:"",
+  policeStation:""
+})
+  const handleChanges=(e)=>{
+    const {name,value}=e.target
+    setFormData({
+      ...formData,
+      [name]:value
+    })
+  }
+  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      data: {
+         ...formData 
+        },
+    };
+
+    axios.post("http://localhost:1337/api/final-projects", userData)
+      .then((response) => {
+        console.log(response.data);
+      });
+  };
   return (
     <div style={{ width: "1440px", padding: 50, margin: "auto" }}>
+      <form onSubmit={handleSubmit}>
       <h1 style={{ textAlign: "center", padding: 20 }}>COMPLAINER</h1>
       <div
         style={{
@@ -25,17 +74,25 @@ function Form() {
       >
         <FileInput
           placeholder="Pick file"
-          //   label="Your resume"
+          // name="complainerPhoto"
+          value={formData.complainerPhoto}
+          onChange={(phote)=>handleChanges({target:{name:"complainerPhoto",value:phote}})}
           size="xl"
           withAsterisk
           style={{ width: "10%" }}
         />
-        <Input style={{ width: "30%" }} placeholder="Reference Number" />
+        <Input 
+        style={{ width: "30%" }}
+         placeholder="Reference Number" 
+         name="referenceNumber"  
+         value={formData.referenceNumber}
+         onChange={handleChanges} />
       </div>
       <div>
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+          name="complainerName"
+          value={formData.complainerName}
+          onChange={handleChanges}
           placeholder="Pick file"
           label="Name"
           size="xs"
@@ -52,35 +109,41 @@ function Form() {
           padding: 20,
         }}
       >
+        
         <DateInput
-          value={value}
-          onChange={setValue}
+          value={formData.regestredData}
+          onChange={
+            (data)=>handleChanges({target:{name:'regestredData',value:data}})}
           label="Date Birth"
           placeholder="Date input"
           size="xs"
         />
+        <NumberInput
+       
+        value={formData.complainerAge}
+      onChange={(age)=>handleChanges({target:{name:"complainerAge",value:age}})}
+      placeholder="Your age"
+      label="Your age"
+      withAsterisk
+    />
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
-          placeholder="Pick file"
-          label="Age"
-          size="xs"
-          withAsterisk
-        />
-        <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+        name="complainerTelephone"
+        value={formData.complainerTelephone}
+        onChange={handleChanges}
           placeholder="Pick file"
           label="Telephone"
           size="xs"
           withAsterisk
         />
         Gender:
-        <Checkbox label="Male" />
-        <Checkbox label="female" />
+        {/* ///////// */}
+        {/* <Checkbox label="Male"  onChange={(isChecked)=>handleChanges({target:{name:"checkboos",value:isChecked}})}/>
+        <Checkbox label="female" onChange={(isChecked)=>handleChanges({target:{name:"checkboos",value:isChecked}})} /> */}
+        {/* /////////// */}
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+          name="others"
+          value={formData.others}
+          onChange={handleChanges}
           placeholder="Pick file"
           label="Other"
           size="xs"
@@ -89,32 +152,36 @@ function Form() {
       </div>
       <div>
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+        name="complainerPlaceOfBirth"
+        value={formData.complainerPlaceOfBirth}
+        onChange={handleChanges}
           placeholder="Pick file"
-          label="Name"
+          label="Place Of Birth"
           size="xs"
           withAsterisk
         />
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+        name="complainerResidenc"
+        value={formData.complainerResidence}
+        onChange={handleChanges}
           placeholder="Pick file"
-          label="Place Of ResiDence"
+          label="Place Of Residence"
           size="xs"
           withAsterisk
         />
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+        name="complainerId"
+        value={formData.complainerId}
+        onChange={handleChanges}
           placeholder="Pick file"
           label="National ID Number (NIN)"
           size="xs"
           withAsterisk
         />
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+        name="complainerEmail"
+        value={formData.complainerEmail}
+        onChange={handleChanges}
           placeholder="Pick file"
           label="Email Address"
           size="xs"
@@ -123,21 +190,22 @@ function Form() {
       </div>
       <h1 style={{ textAlign: "center", padding: 20 }}>VICTIM DETAILS</h1>
       <div>
-        <Select
-          label="Offence Type:"
-          placeholder="Pick one"
-          data={[
-            { value: "accident", label: "Accident" },
-            { value: "steal", label: "Stealind" },
-            { value: "murder", label: "Murder" },
-            { value: "accident", label: "Accident" },
-            { value: "steal", label: "Stealind" },
-            { value: "murder", label: "Murder" },
-          ]}
-        />
+        {/* /////////// */}
+      {/* <Select
+  onChange={(offence) => handleChanges("offence", offence)}
+  label="Offence Type:"
+  placeholder="Pick one"
+  data={[
+    { value: "accident", label: "Accident" },
+    { value: "steal", label: "Stealing" },
+    { value: "murder", label: "Murder" },
+  ]}
+/> */}
+{/* //////////// */}
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+        name="victimName"
+        value={formData.victimName}
+        onChange={handleChanges}
           placeholder="Pick file"
           label="Name Of Person Reported"
           size="xs"
@@ -151,22 +219,28 @@ function Form() {
             alignItems: "center",
           }}
         >
+          {/* //////// */}
           Gender:
           <Checkbox label="Male" />
           <Checkbox label="female" />
+
+          
+          {/* /////// */}
           <TextInput
-            value={value}
-            onChange={(event) => setValue(event.currentTarget.value)}
-            placeholder="Pick file"
-            label="Telephone"
-            size="xs"
-            withAsterisk
-            className="py-8 ..."
+          name="victimTelephone"
+          value={formData.victimTelephone}
+          onChange={handleChanges}
+          placeholder="Pick file"
+          label="Telephone"
+          size="xs"
+          withAsterisk
+          className="py-8 ..."
           />
         </div>
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+        name="victimResidenc"
+        value={formData.victimResidenc}
+        onChange={handleChanges}
           placeholder="Pick file"
           label="Place Of Residence"
           size="xs"
@@ -174,46 +248,55 @@ function Form() {
           className="py-8 ..."
         />
         <Textarea
+        name="caseDetail"
+        value={formData.caseDetailes}
+        onChange={handleChanges}
           placeholder="Tell Us What Happened"
           label="Case Detail"
           size="xl"
           withAsterisk
         />
       </div>
-      <p>When Did This Happen</p>
+      <h5>When Did This Happen</h5>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <DateInput
-          value={value}
-          onChange={setValue}
+        name="happenedDate"
+        value={formData.happenedDate}
+        onChange={(happened)=>handleChanges({target:{name:"happenedDate",value:happened}})}
           label="Date Birth"
           placeholder="Date input"
           size="xs"
         />
 
-        <TimeInput
-          label="Click icon to show browser picker"
-          //   ref={ref}
+        {/* <TimeInput
+          label="Time"
+          name="happenedTime"
+          value={formData.happenedTime}
+          onChange={handleChanges}
+    
           rightSection={
             <ActionIcon>
               <IconClock size="1rem" stroke={1.5} />
             </ActionIcon>
           }
-        />
+        /> */}
       </div>
       <TextInput
-        value={value}
-        onChange={(event) => setValue(event.currentTarget.value)}
-        placeholder="Pick file"
-        label="Place Of Residence"
-        size="xs"
-        withAsterisk
-        className="py-8 ..."
+      name="crimeScene"
+      value={formData.crimeScene}
+      onChange={handleChanges}
+      placeholder="Pick file"
+      label="Place Of Residence"
+      size="xs"
+      withAsterisk
+      className="py-8 ..."
       />
-      <p>Any Witness</p>
+      <h5>Any Witness</h5>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+          name="witnessName"
+          value={formData.witnessName}
+          onChange={handleChanges}
           placeholder="Pick file"
           label="Name"
           size="xs"
@@ -222,8 +305,9 @@ function Form() {
         />
 
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+         name="witnessTel"
+         value={formData.witnessTel}
+         onChange={handleChanges}
           placeholder="phone number"
           label="Tel"
           size="xs"
@@ -232,8 +316,9 @@ function Form() {
         />
       </div>
       <TextInput
-        value={value}
-        onChange={(event) => setValue(event.currentTarget.value)}
+        name="injuries"
+        value={formData.injuries}
+        onChange={handleChanges}
         placeholder="Pick file"
         label="Injuries?(If Any Specify)"
         size="xs"
@@ -248,17 +333,37 @@ function Form() {
           padding: 20,
         }}
       >
+        {/* //////////////////////////// */}
         Did You Get Any Medical Assistance
-        <Checkbox label="Yes" />
-        <Checkbox label="No" />
+       
+        {/* <Checkbox label="No" onChange={(No)=>handleChanges({target:{name:"medicalAssistance",value:No}})}/>
+        <Checkbox label="Yes" onChange={(Yes)=>handleChanges({target:{name:"medicalAssistance",value:Yes}})} /> */}
+
+{/* 
+<Radio.Group
+           name="medicalAssistance"
+           value={formData.medicalAssistance}
+          label="Did you receive medical assistance ?"
+          description="medicalAssistance"
+          withAsterisk
+          // onChange={handleChanges(console.log(value))}
+    >
+      <Group mt="xs">
+        <Radio value="no" label="No" />
+        <Radio value="yes" label="Yes" />
+        
+      </Group>
+       </Radio.Group> */}
       </div>
       <h1 style={{ textAlign: "center", padding: 20 }}>
         OFFICER IN-CHARGE OF CASE
       </h1>
       <div>
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+          name="rank"
+          
+          value={formData.rank}
+          onChange={handleChanges}
           placeholder="Pick file"
           label="Rank"
           size="xs"
@@ -266,8 +371,9 @@ function Form() {
           className="py-8 ..."
         />
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+          name="officerName"
+          value={formData.officerName}
+          onChange={handleChanges}
           placeholder="Pick file"
           label="Name"
           size="xs"
@@ -275,8 +381,9 @@ function Form() {
           className="py-8 ..."
         />
         <TextInput
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
+        name="policeStation"
+        value={formData.policeStation}
+        onChange={handleChanges}
           placeholder="Pick file"
           label="Police Station"
           size="xs"
@@ -286,10 +393,13 @@ function Form() {
       </div>
 
       <div>
-        <Button className="mx-8 ...">SUBMIT FORM</Button>
+        <Button type="submit" className="mx-8 ...">SUBMIT FORM</Button>
       </div>
+      </form>
+      
     </div>
   );
 }
 
 export default Form;
+

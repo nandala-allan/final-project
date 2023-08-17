@@ -18,7 +18,6 @@ function Home() {
     <>
       <Header />
 
-        
       <h1>Welcome to Kazu Police Force</h1>
       <div className="cards">
         <div className="card-info">
@@ -35,17 +34,17 @@ function Home() {
           <button type="submit" onClick={search}>
             Search
           </button>
-
         </div>
       </div>
-<div className="content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            inventore ullam necessitatibus labore fugiat velit, quaerat nisi
-            optio odit voluptatibus aliquam nemo id rem, blanditiis nam delectus
-            amet. Optio, officiis.
-          </p>
-      <Footer />
+      <div className="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+          inventore ullam necessitatibus labore fugiat velit, quaerat nisi optio
+          odit voluptatibus aliquam nemo id rem, blanditiis nam delectus amet.
+          Optio, officiis.
+        </p>
+        <Footer />
+      </div>
     </>
   );
 }

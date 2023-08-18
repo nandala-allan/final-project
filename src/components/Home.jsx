@@ -10,9 +10,9 @@ function Home() {
   function form() {
     redirect("/form");
   }
-function naviget(){
-  redirect("/SearchForm")
-}
+  function naviget() {
+    redirect("/SearchForm");
+  }
   return (
     <>
       <Header />
@@ -27,23 +27,25 @@ function naviget(){
             </button>
           </div>
 
-        <div className="card-info">
-          <h2>Search Form</h2>
-          <p>Search for a complaint form</p>
-          <button type="submit" onClick={naviget} >Search</button>
+          <div className="card-info">
+            <h2>Search Form</h2>
+            <p>Search for a complaint form</p>
+            <button type="submit" onClick={naviget}>
+              Search
+            </button>
+          </div>
+        </div>
+        <div className="content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+            inventore ullam necessitatibus labore fugiat velit, quaerat nisi
+            optio odit voluptatibus aliquam nemo id rem, blanditiis nam delectus
+            amet. Optio, officiis.
+          </p>
         </div>
       </div>
-      <div className="content">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          inventore ullam necessitatibus labore fugiat velit, quaerat nisi optio
-          odit voluptatibus aliquam nemo id rem, blanditiis nam delectus amet.
-          Optio, officiis.
-        </p>
-      </div>
       <Footer />
-    </div>
-</>
+    </>
   );
 }
 

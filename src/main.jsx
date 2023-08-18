@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import Form from "./components/Form";
-import Search from "./components/Search";
+import SearchForm from "./components/SearchForm";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -16,9 +16,9 @@ const router = createBrowserRouter([
     element: <Form />,
   },
   {
-    path: "/Search",
-    element: <Search />,
-  },
+    path:"/SearchForm",
+    element:<SearchForm/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

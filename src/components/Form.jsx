@@ -29,8 +29,6 @@ const [formData,setFormData]=useState({
   caseDetailes:"",
   gender:"",
   happenedDate:"",
-  happenedTime:"",
-
   crimeScene:"",
   witnessName:"",
   witnessTel:"",
@@ -41,7 +39,7 @@ const [formData,setFormData]=useState({
   policeStation:""
 })
   const handleChanges=(e)=>{
-    console.log(e.target.value)
+    // console.log(e.target.value)
     const {name,value}=e.target
     if(!e.target){
       return null

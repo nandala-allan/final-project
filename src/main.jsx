@@ -15,6 +15,10 @@ const router = createBrowserRouter([
     path: "/Form",
     element: <Form />,
   },
+  {
+    path:"/SearchForm",
+    element:<SearchForm/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

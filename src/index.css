@@ -1,5 +1,5 @@
 /* @tailwind base; */
-@tailwind components;
+/* @tailwind components;
 @tailwind utilities;
 * {
   margin: 0;
@@ -9,3 +9,4 @@
 .search-form {
   min-height: 80vh;
 }
+

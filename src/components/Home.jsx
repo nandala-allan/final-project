@@ -2,18 +2,17 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "../components/Home.css";
 import Footer from "./Footer";
-import Search from "./Search";
-import { func } from "prop-types";
+// import Search from "./Search";
+// import { func } from "prop-types";
 function Home() {
   let redirect = useNavigate();
 
   function form() {
     redirect("/form");
   }
-  function search() {
-    redirect("./Search");
-  }
-
+function naviget(){
+  redirect("/SearchForm")
+}
   return (
     <>
       <Header />
@@ -28,25 +27,23 @@ function Home() {
             </button>
           </div>
 
-          <div className="card-info">
-            <h2>Search Form</h2>
-            <p>Search for a complaint form</p>
-            <button type="submit" onClick={search}>
-              Search
-            </button>
-          </div>
-        </div>
-        <div className="content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            inventore ullam necessitatibus labore fugiat velit, quaerat nisi
-            optio odit voluptatibus aliquam nemo id rem, blanditiis nam delectus
-            amet. Optio, officiis.
-          </p>
+        <div className="card-info">
+          <h2>Search Form</h2>
+          <p>Search for a complaint form</p>
+          <button type="submit" onClick={naviget} >Search</button>
         </div>
       </div>
+      <div className="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+          inventore ullam necessitatibus labore fugiat velit, quaerat nisi optio
+          odit voluptatibus aliquam nemo id rem, blanditiis nam delectus amet.
+          Optio, officiis.
+        </p>
+      </div>
       <Footer />
-    </>
+    </div>
+</>
   );
 }
 

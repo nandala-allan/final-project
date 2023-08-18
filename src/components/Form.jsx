@@ -12,7 +12,6 @@ import { IconClock } from "@tabler/icons-react";
 import {  Radio,Group} from '@mantine/core';
 function Form() {
 const [formData,setFormData]=useState({
- complainerPhoto:"",
   referenceNumber:"",
   complainerName:"",
   regestredData:"",
@@ -20,27 +19,33 @@ const [formData,setFormData]=useState({
   complainerTelephone:"",
   others:"",
   complainerPlaceOfBirth:"",
-  complainerResidenc:"",
+  complainerResidence:"",
   complainerId:"",
   complainerEmail:"",
-  // offence:"",
+  offence:"",
   victimName:"",
   victimTelephone:"",
-  victimResidenc:"",
-  caseDetail:"",
+  victimResidence:"",
+  caseDetailes:"",
+  gender:"",
   happenedDate:"",
-  // happenedTime:"",
+  happenedTime:"",
+
   crimeScene:"",
   witnessName:"",
   witnessTel:"",
   injuries:"",
-  // medicalAssistance:"",
+  medicalAssistance:"",
   rank:"",
   officerName:"",
   policeStation:""
 })
   const handleChanges=(e)=>{
+    console.log(e.target.value)
     const {name,value}=e.target
+    if(!e.target){
+      return null
+    }
     setFormData({
       ...formData,
       [name]:value
@@ -135,11 +140,20 @@ const [formData,setFormData]=useState({
           size="xs"
           withAsterisk
         />
-        Gender:
-        {/* ///////// */}
-        {/* <Checkbox label="Male"  onChange={(isChecked)=>handleChanges({target:{name:"checkboos",value:isChecked}})}/>
-        <Checkbox label="female" onChange={(isChecked)=>handleChanges({target:{name:"checkboos",value:isChecked}})} /> */}
-        {/* /////////// */}
+        <Radio.Group
+           name="gender"
+           value={formData.gender}
+           label="sex"
+           description="select complainer's gender "
+           withAsterisk
+           onChange={(value) => handleChanges({ target: { name: "gender", value } })}
+    >
+      <Group mt="xs">
+        <Radio value="male" label="Male" />
+        <Radio value="female" label="Female" />
+        
+      </Group>
+       </Radio.Group>
         <TextInput
           name="others"
           value={formData.others}
@@ -161,7 +175,7 @@ const [formData,setFormData]=useState({
           withAsterisk
         />
         <TextInput
-        name="complainerResidenc"
+        name="complainerResidence"
         value={formData.complainerResidence}
         onChange={handleChanges}
           placeholder="Pick file"
@@ -190,9 +204,10 @@ const [formData,setFormData]=useState({
       </div>
       <h1 style={{ textAlign: "center", padding: 20 }}>VICTIM DETAILS</h1>
       <div>
-        {/* /////////// */}
-      {/* <Select
-  onChange={(offence) => handleChanges("offence", offence)}
+  
+      <Select
+  value={formData.offence}
+  onChange={(value)=>handleChanges({target:{name:"offence",value:value}})}
   label="Offence Type:"
   placeholder="Pick one"
   data={[
@@ -200,8 +215,8 @@ const [formData,setFormData]=useState({
     { value: "steal", label: "Stealing" },
     { value: "murder", label: "Murder" },
   ]}
-/> */}
-{/* //////////// */}
+/>
+
         <TextInput
         name="victimName"
         value={formData.victimName}
@@ -220,12 +235,12 @@ const [formData,setFormData]=useState({
           }}
         >
           {/* //////// */}
-          Gender:
+          {/* Gender:
           <Checkbox label="Male" />
           <Checkbox label="female" />
 
           
-          {/* /////// */}
+          /////// */}
           <TextInput
           name="victimTelephone"
           value={formData.victimTelephone}
@@ -238,8 +253,8 @@ const [formData,setFormData]=useState({
           />
         </div>
         <TextInput
-        name="victimResidenc"
-        value={formData.victimResidenc}
+        name="victimResidence"
+        value={formData.victimResidence}
         onChange={handleChanges}
           placeholder="Pick file"
           label="Place Of Residence"
@@ -248,7 +263,7 @@ const [formData,setFormData]=useState({
           className="py-8 ..."
         />
         <Textarea
-        name="caseDetail"
+        name="caseDetailes"
         value={formData.caseDetailes}
         onChange={handleChanges}
           placeholder="Tell Us What Happened"
@@ -268,10 +283,11 @@ const [formData,setFormData]=useState({
           size="xs"
         />
 
-        {/* <TimeInput
+        <TimeInput
           label="Time"
           name="happenedTime"
           value={formData.happenedTime}
+      
           onChange={handleChanges}
     
           rightSection={
@@ -279,7 +295,7 @@ const [formData,setFormData]=useState({
               <IconClock size="1rem" stroke={1.5} />
             </ActionIcon>
           }
-        /> */}
+        />
       </div>
       <TextInput
       name="crimeScene"
@@ -339,21 +355,21 @@ const [formData,setFormData]=useState({
         {/* <Checkbox label="No" onChange={(No)=>handleChanges({target:{name:"medicalAssistance",value:No}})}/>
         <Checkbox label="Yes" onChange={(Yes)=>handleChanges({target:{name:"medicalAssistance",value:Yes}})} /> */}
 
-{/* 
+
 <Radio.Group
            name="medicalAssistance"
            value={formData.medicalAssistance}
-          label="Did you receive medical assistance ?"
-          description="medicalAssistance"
-          withAsterisk
-          // onChange={handleChanges(console.log(value))}
+           label="Did you receive medical assistance ?"
+           description="medicalAssistance"
+           withAsterisk
+           onChange={(value) => handleChanges({ target: { name: "medicalAssistance", value } })}
     >
       <Group mt="xs">
         <Radio value="no" label="No" />
         <Radio value="yes" label="Yes" />
         
       </Group>
-       </Radio.Group> */}
+       </Radio.Group>
       </div>
       <h1 style={{ textAlign: "center", padding: 20 }}>
         OFFICER IN-CHARGE OF CASE

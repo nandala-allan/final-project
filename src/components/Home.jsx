@@ -9,7 +9,9 @@ function Home() {
   function search() {
     redirect("/form");
   }
-
+function naviget(){
+  redirect("/SearchForm")
+}
   return (
     <>
       <Header />
@@ -26,7 +28,7 @@ function Home() {
         <div className="card-info">
           <h2>Search Form</h2>
           <p>Search for a complaint form</p>
-          <button type="submit">Search</button>
+          <button type="submit" onClick={naviget} >Search</button>
         </div>
       </div>
       <div className="content">

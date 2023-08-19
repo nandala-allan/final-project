@@ -1,16 +1,17 @@
 footer {
-  background-color: #898686;
-  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #ffffff;
+  background-color: #898686;
+  height: 80px;
 }
 
 footer h3 {
   font-size: 20px;
   font-weight: 400;
+  text-align: center;
 }
 
 span {

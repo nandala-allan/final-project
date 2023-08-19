@@ -1,4 +1,4 @@
-/* @tailwind base;  */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -7,7 +7,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  border: 1px solid red;
 }
 .search-form {
   min-height: 80vh;

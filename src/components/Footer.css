@@ -3,14 +3,11 @@ footer {
   color: #ffffff;
   text-align: center;
   font-size: 25px;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
+  font-weight: 600;
 }
 footer h3 {
   font-size: 25px;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
-  height: auto;
+  font-weight: 600;
 }
 
 span {

@@ -20,15 +20,15 @@ function Home() {
         <h1>Welcome to Kazu Police Force</h1>
         <div className="cards">
           <div className="card-info">
-            <h2>New Form</h2>
+            <h2>Register New Case</h2>
             <p>Make a complaint about a crime</p>
             <button type="submit" onClick={form}>
-              Generate New
+              Generate New Case Form
             </button>
           </div>
 
           <div className="card-info">
-            <h2>Search Form</h2>
+            <h2>Search For Case</h2>
             <p>Search for a complaint form</p>
             <button type="submit" onClick={naviget}>
               Search
@@ -37,10 +37,11 @@ function Home() {
         </div>
         <div className="content">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            inventore ullam necessitatibus labore fugiat velit, quaerat nisi
-            optio odit voluptatibus aliquam nemo id rem, blanditiis nam delectus
-            amet. Optio, officiis.
+            The mandate of Kanzu Police Force as provided in the Constitution of
+            the Republic of KANZU, and KANZU Police Force Act Cap 303, is
+            protection of life and property, prevention and detection of crime,
+            keeping law and order, and maintenance of overall Security and
+            Public Safety in Kanzu.
           </p>
         </div>
       </div>

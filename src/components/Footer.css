@@ -34,14 +34,11 @@ span {
 }
 footer {
   background-color: #898686;
-  /* position: fixed; */
-  height: 50px;
-  border-radius: 5px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 832px;
 }
 h3 {
   color: #ffffff;

@@ -1,13 +1,16 @@
 footer {
   background-color: #898686;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #ffffff;
-  text-align: center;
-  font-size: 25px;
-  font-weight: 600;
 }
+
 footer h3 {
-  font-size: 25px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 span {
@@ -24,24 +27,4 @@ span {
 .red {
   background-color: red;
   height: 5px;
-}
-* {
-  margin: 0;
-  padding: 0%;
-}
-footer {
-  background-color: #898686;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-h3 {
-  color: #ffffff;
-  text-align: center;
-}
-p {
-  color: #ffffff;
-  text-align: center;
 }

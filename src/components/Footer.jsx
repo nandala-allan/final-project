@@ -3,7 +3,7 @@ import "../components/Footer.css";
 function Footer() {
   return (
     <footer>
-      <p>Copyright © KANZU Police Force 2023. All rights reserved. </p>
+      <h3>Copyright © KANZU Police Force 2023. All rights reserved. </h3>
     </footer>
   );
 }

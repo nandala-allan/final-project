@@ -17,7 +17,7 @@ function Home() {
     <>
       <Header />
       <div className="home">
-        <h1>Welcome to Kazu Police Force</h1>
+        <h1>Welcome to Kanzu Police Force</h1>
         <div className="cards">
           <div className="card-info">
             <h2>Register New Case</h2>

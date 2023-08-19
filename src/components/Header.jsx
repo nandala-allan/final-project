@@ -4,9 +4,7 @@ function Header() {
   return (
     <header>
       <h1>KANZU POLICE FORCE</h1>
-      <h3>
-        <em>Code Protect and Serve</em>
-      </h3>
+      <p>Code Protect and Serve</p>
 
       <div className="flag">
         <span className="black"></span>

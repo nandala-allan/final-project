@@ -6,14 +6,13 @@ import { useState } from "react";
 const SearchForm = () => {
   const [inputValue, setInputValue] = useState("");
   const [responseData, setResponseData] = useState(null);
+  const [searchedData, setSearchedData] = useState(null);
+
   const handleButtonClick = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:1337/api/final-projects"
-      );
+      const response = await axios.get("https://reqres.in/api/login");
       // Handle the response data here
       console.log(response.data);
-      setResponseData(response.data);
 
       // setFormData({
       //   caseDetails: response.data.caseDetails,
@@ -46,6 +45,14 @@ const SearchForm = () => {
       //   witnessName: response.data.witnessName,
       //   witnessTel: response.data.witnessTel,
       // });
+
+      setResponseData(response.data.data);
+
+      const filteredData = responseData.filter((item) =>
+        item.name.toLowerCase().includes(inputValue.toLowerCase())
+      );
+
+      setSearchedData(filteredData);
     } catch (error) {
       // Handle errors here
       console.error("Error fetching data:", error);
@@ -57,10 +64,20 @@ const SearchForm = () => {
 
   // getData();
 
+  // const handleSearch = () => {
+  //   if (responseData) {
+  //     // Filter the data based on the 'name' property
+  //     const filteredData = responseData.data.data.filter((item) =>
+  //       item.id.toLowerCase().includes(inputValue.toLowerCase())
+  //     );
+  //     setSearchedData(filteredData);
+  //   }
+  //   console.log(filteredData);
+  // };
   const handleChenges = (e) => {
     const inputValue = e.target.value;
     setInputValue(inputValue);
-    console.log(inputValue);
+    // console.log(inputValue);
   };
 
   return (
@@ -84,7 +101,7 @@ const SearchForm = () => {
       {responseData && (
         <div>
           <h1>{`${inputValue}'s Data`}</h1>
-          <pre>{JSON.stringify(responseData.data[0], null, 2)}</pre>
+          <pre>{JSON.stringify(searchedData, null, 2)}</pre>
         </div>
       )}
     </>

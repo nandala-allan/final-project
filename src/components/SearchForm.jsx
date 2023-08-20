@@ -1,7 +1,7 @@
 import { Input, Button, Container, Flex, Space } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
-// import axios from "axios";
+import Datatable from "./table";
 
 const SearchForm = () => {
   const [inputValue, setInputValue] = useState("");
@@ -10,9 +10,12 @@ const SearchForm = () => {
 
   const handleButtonClick = async () => {
     try {
-      const response = await axios.get("https://reqres.in/api/login");
-      // Handle the response data here
-      console.log(response.data);
+      const response = await axios.get(
+        "http://localhost:1337/api/final-projects"
+      );
+      //localhost:1337/api/final-projects
+      //reqres.in/api/login
+      console.log(response.data.data);
 
       // setFormData({
       //   caseDetails: response.data.caseDetails,
@@ -47,9 +50,11 @@ const SearchForm = () => {
       // });
 
       setResponseData(response.data.data);
-
+      // console.log(responseData);
       const filteredData = responseData.filter((item) =>
-        item.name.toLowerCase().includes(inputValue.toLowerCase())
+        item.attributes.complainerName
+          .toLowerCase()
+          .includes(inputValue.toLowerCase())
       );
 
       setSearchedData(filteredData);
@@ -77,7 +82,6 @@ const SearchForm = () => {
   const handleChenges = (e) => {
     const inputValue = e.target.value;
     setInputValue(inputValue);
-    // console.log(inputValue);
   };
 
   return (
@@ -101,7 +105,7 @@ const SearchForm = () => {
       {responseData && (
         <div>
           <h1>{`${inputValue}'s Data`}</h1>
-          <pre>{JSON.stringify(searchedData, null, 2)}</pre>
+          <Datatable searchedData={searchedData} />
         </div>
       )}
     </>

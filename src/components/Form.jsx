@@ -10,36 +10,38 @@ import { ActionIcon } from "@mantine/core";
 import { TimeInput } from "@mantine/dates";
 import { IconClock } from "@tabler/icons-react";
 import {  Radio,Group} from '@mantine/core';
+
 function Form() {
 const [formData,setFormData]=useState({
-  referenceNumber:"",
-  complainerName:"",
-  regestredData:"",
-  complainerAge:"",
-  complainerTelephone:"",
-  others:"",
+  // referenceNumber:"",
+  // complainerName:"",
+  // regestredData:"",
+  // complainerAge:"",
+  // complainerTelephone:"",
+  // // others:"",
   complainerPlaceOfBirth:"",
-  complainerResidence:"",
-  complainerId:"",
-  complainerEmail:"",
-  offence:"",
-  victimName:"",
-  victimTelephone:"",
-  victimResidence:"",
-  caseDetailes:"",
-  gender:"",
-  happenedDate:"",
-  crimeScene:"",
-  witnessName:"",
-  witnessTel:"",
-  injuries:"",
-  medicalAssistance:"",
-  rank:"",
-  officerName:"",
-  policeStation:""
+  // complainerResidence:"",
+  // complainerId:"",
+  // complainerEmail:"",
+  // offence:"",
+  // victimName:"",
+  // victimTelephone:"",
+  // victimResidence:"",
+  // caseDetailes:"",
+  // complainersGender:"",
+  // victimsgender:"",
+  // happenedDate:"",
+  // crimeScene:"",
+  // witnessName:"",
+  // witnessTel:"",
+  // injuries:"",
+  // medicalAssistance1:"",
+  // rank:"",
+  // officerName:"",
+  // policeStation:""
 })
   const handleChanges=(e)=>{
-    // console.log(e.target.value)
+    console.log(e.target.value)
     const {name,value}=e.target
     if(!e.target){
       return null
@@ -139,12 +141,12 @@ const [formData,setFormData]=useState({
           withAsterisk
         />
         <Radio.Group
-           name="gender"
-           value={formData.gender}
+           name="complainersGender"
+           value={formData.complainersGender}
            label="sex"
            description="select complainer's gender "
            withAsterisk
-           onChange={(value) => handleChanges({ target: { name: "gender", value } })}
+           onChange={(value) => handleChanges({ target: { name: "complainersGender", value } })}
     >
       <Group mt="xs">
         <Radio value="male" label="Male" />
@@ -152,7 +154,7 @@ const [formData,setFormData]=useState({
         
       </Group>
        </Radio.Group>
-        <TextInput
+        {/* <TextInput
           name="others"
           value={formData.others}
           onChange={handleChanges}
@@ -160,7 +162,7 @@ const [formData,setFormData]=useState({
           label="Other"
           size="xs"
           withAsterisk
-        />
+        /> */}
       </div>
       <div>
         <TextInput
@@ -281,7 +283,7 @@ const [formData,setFormData]=useState({
           size="xs"
         />
 
-        <TimeInput
+        {/* <TimeInput
           label="Time"
           name="happenedTime"
           value={formData.happenedTime}
@@ -293,7 +295,7 @@ const [formData,setFormData]=useState({
               <IconClock size="1rem" stroke={1.5} />
             </ActionIcon>
           }
-        />
+        /> */}
       </div>
       <TextInput
       name="crimeScene"
@@ -355,12 +357,12 @@ const [formData,setFormData]=useState({
 
 
 <Radio.Group
-           name="medicalAssistance"
-           value={formData.medicalAssistance}
+           name="medicalAssistance1"
+           value={formData.medicalAssistance1}
            label="Did you receive medical assistance ?"
-           description="medicalAssistance"
+           description="medicalAssistance1"
            withAsterisk
-           onChange={(value) => handleChanges({ target: { name: "medicalAssistance", value } })}
+           onChange={(value) => handleChanges({ target: { name: "medicalAssistance1", value } })}
     >
       <Group mt="xs">
         <Radio value="no" label="No" />
@@ -410,7 +412,7 @@ const [formData,setFormData]=useState({
         <Button type="submit" className="mx-8 ...">SUBMIT FORM</Button>
       </div>
       </form>
-      
+  
     </div>
   );
 }

@@ -315,18 +315,6 @@ function Form() {
             placeholder="Date input"
             size="md"
           />
-
-          {/* <TimeInput
-            label="Time"
-            name="happenedTime"
-            value={formData.happenedTime}
-            onChange={handleChanges}
-            rightSection={
-              <ActionIcon>
-                <IconClock size="1rem" stroke={1.5} />
-              </ActionIcon>
-            }
-          /> */}
         </div>
         <TextInput
           name="crimeScene"
@@ -401,26 +389,41 @@ function Form() {
           OFFICER IN-CHARGE OF CASE
         </h1>
         <div>
-          <TextInput
-            name="rank"
+          <Select
             value={formData.rank}
-            onChange={handleChanges}
-            placeholder="Pick file"
+            onChange={(value) =>
+              handleChanges({ target: { name: "rank", value: value } })
+            }
             label="Rank"
+            placeholder="Select Rank"
+            data={[
+              { value: "Captain", label: "Captain" },
+              { value: "Major", label: "Major" },
+              { value: "Sergent", label: "Sergent" },
+              { value: "Private", label: "Private" },
+            ]}
             size="md"
-            withAsterisk
-            className="py-8 ..."
           />
-          <TextInput
-            name="officerName"
+
+          <Select
             value={formData.officerName}
-            onChange={handleChanges}
-            placeholder="Pick file"
-            label="Name"
+            onChange={(value) =>
+              handleChanges({ target: { name: "officerName", value: value } })
+            }
+            label="Officer In Charge"
+            placeholder="Choose officer In charge"
+            data={[
+              { value: "One Mike", label: "Onen Mike" },
+              { value: "Kika Micheal", label: "Kika Micheal" },
+              { value: "Semanda Joj", label: "Semanda joj" },
+              { value: "Jadwong Matayo", label: "Jadwong Matayo" },
+              { value: "Muwala Joanita", label: "Muwala Joanita" },
+              { value: "Chemogoi Peter", label: "Chemogoi Peter" },
+              { value: "Kirabo Simon", label: "Kirabo Simon" },
+            ]}
             size="md"
-            withAsterisk
-            className="py-8 ..."
           />
+
           <TextInput
             name="policeStation"
             value={formData.policeStation}

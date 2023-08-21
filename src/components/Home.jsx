@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "../components/Home.css";
 import Footer from "./Footer";
+// import Search from "./Search";
+// import { func } from "prop-types";
 function Home() {
   let redirect = useNavigate();
 

@@ -2,15 +2,27 @@ header {
   background-color: #898686;
   color: #ffffff;
   text-align: center;
-  font-size: 25px;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
-}
-header h3 {
-  font-size: 25px;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
   height: auto;
+}
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav img {
+  width: 2%;
+}
+header h1 {
+  font-size: 35px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+
+header p {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 8px;
 }
 
 span {

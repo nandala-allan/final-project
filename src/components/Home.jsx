@@ -18,7 +18,7 @@ function Home() {
       <Header />
       <div className="home">
         <div className="img">
-          <img src="../public/Kanzu Police.png" />
+          <img src="../Kanzu Police.png" />
           <h1 className="font-medium text-2xl">
             Welcome to Kanzu Police Force
           </h1>

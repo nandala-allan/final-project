@@ -1,4 +1,4 @@
-import { FileInput, Input, TextInput, Checkbox, Box } from "@mantine/core";
+import { FileInput, Input, TextInput, Box } from "@mantine/core";
 import { useState } from "react";
 import { DateInput } from "@mantine/dates";
 import { Select } from "@mantine/core";
@@ -6,9 +6,6 @@ import { Textarea } from "@mantine/core";
 import { NumberInput } from "@mantine/core";
 // import { useRef } from 'react';
 import { Button } from "@mantine/core";
-import { ActionIcon } from "@mantine/core";
-import { TimeInput } from "@mantine/dates";
-import { IconClock } from "@tabler/icons-react";
 import { Radio, Group } from "@mantine/core";
 function Form() {
   const [formData, setFormData] = useState({
@@ -319,7 +316,7 @@ function Form() {
             size="md"
           />
 
-          <TimeInput
+          {/* <TimeInput
             label="Time"
             name="happenedTime"
             value={formData.happenedTime}
@@ -329,7 +326,7 @@ function Form() {
                 <IconClock size="1rem" stroke={1.5} />
               </ActionIcon>
             }
-          />
+          /> */}
         </div>
         <TextInput
           name="crimeScene"
@@ -377,9 +374,6 @@ function Form() {
         />
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
             padding: 20,
           }}
         >
@@ -440,7 +434,7 @@ function Form() {
         </div>
 
         <div>
-          <Button type="submit" className="mx-8 ...">
+          <Button type="submit" className=" bg-blue-500">
             SUBMIT FORM
           </Button>
         </div>

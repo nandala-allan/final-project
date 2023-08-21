@@ -13,19 +13,3 @@ footer h3 {
   font-weight: 400;
   text-align: center;
 }
-
-span {
-  display: block;
-}
-.black {
-  background-color: black;
-  height: 5px;
-}
-.yellow {
-  background-color: yellow;
-  height: 5px;
-}
-.red {
-  background-color: red;
-  height: 5px;
-}

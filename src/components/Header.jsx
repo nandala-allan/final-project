@@ -4,12 +4,12 @@ function Header() {
   return (
     <header>
       <div className="nav">
-        <img src="../public/Kanzu Police.png" />
+        <img src="../Kanzu Police.png" />
         <div>
           <h1>KANZU POLICE FORCE</h1>
           <p>Code Protect and Serve</p>
         </div>
-        <img src="../public/Kanzu Police.png" />
+        <img src="../Kanzu Police.png" />
       </div>
 
       <div className="flag">

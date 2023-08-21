@@ -48,7 +48,12 @@ function Search() {
               />
 
               <Group position="right" mt="md">
-                <Button type="submit">Search</Button>
+                <Button
+                  className="px-4 py-3 font-medium uppercase text-smbg-blue-500"
+                  type="submit"
+                >
+                  Search
+                </Button>
               </Group>
             </form>
           </Box>

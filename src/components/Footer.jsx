@@ -1,12 +1,9 @@
 import "../components/Footer.css";
 
-import { useClickOutside } from "@mantine/hooks";
-
 function Footer() {
   return (
     <footer>
-      <h3>KANZU CODE POLICE FORCE</h3>
-      <p>To Code, Protect & Serve</p>
+      <h3>Copyright © KANZU Police Force 2023. All rights reserved. </h3>
     </footer>
   );
 }

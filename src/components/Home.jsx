@@ -15,32 +15,47 @@ function Home() {
     <>
       <Header />
       <div className="home">
-        <h1>Welcome to Kazu Police Force</h1>
+        <div className="img">
+          <img src="../Kanzu Police.png" />
+          <h1 className="font-medium text-2xl">
+            Welcome to Kanzu Police Force
+          </h1>
+        </div>
+
         <div className="cards">
           <div className="card-info">
-            <h2>New Form</h2>
-            <p>Make a complaint about a crime</p>
-            <button type="submit" onClick={form}>
-              Generate New
+            <h2 className="font-bold text-2xl">Register New Case</h2>
+            <p className="text-lg">Make a complaint about a crime</p>
+            <button
+              className="bg-blue-500 px-4 py-3 font-medium uppercase text-sm"
+              type="submit"
+              onClick={form}
+            >
+              Generate New Case Form
             </button>
           </div>
 
           <div className="card-info">
-            <h2>Search Form</h2>
-            <p>Search for a complaint form</p>
-            <button type="submit" onClick={naviget}>
+            <h2 className="font-bold text-2xl">Search For Case</h2>
+            <p className="text-lg">Search for a case form</p>
+            <button
+              className="bg-blue-500 px-4 py-3 font-medium uppercase text-sm"
+              type="submit"
+              onClick={naviget}
+            >
               Search
             </button>
           </div>
         </div>
-        <div className="content">
+        {/* <div className="content">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            inventore ullam necessitatibus labore fugiat velit, quaerat nisi
-            optio odit voluptatibus aliquam nemo id rem, blanditiis nam delectus
-            amet. Optio, officiis.
+            The mandate of Kanzu Police Force as provided in the Constitution of
+            the Republic of KANZU, and KANZU Police Force Act Cap 303, is
+            protection of life and property, prevention and detection of crime,
+            keeping law and order, and maintenance of overall Security and
+            Public Safety in Kanzu.
           </p>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>

@@ -1,9 +1,10 @@
 .home {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
   background-color: #1a4343;
-  min-height: 80vh;
-  padding: 50px;
+  min-height: 100vh;
+  padding: 50px 10px;
   gap: 20px;
 }
 
@@ -16,12 +17,12 @@
 .cards {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .card-info {
-  width: 20%;
-  border: 1px solid black;
+  width: 25%;
+  border: 1px solid white;
   border-radius: 5px;
   padding: 20px;
   color: #ffffff;
@@ -31,21 +32,28 @@
   align-items: center;
   gap: 20px;
   text-align: center;
+  /* box-shadow: 0px 0px 21px 12px rgba(0, 0, 0, 0.1); */
 }
 
 button {
-  text-transform: uppercase;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  background-color: #2c70f4;
-  color: #ffffff;
 }
 
 .content p {
   text-align: center;
   color: #ffffff;
+}
+
+.img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 10%;
+  height: auto;
 }
 
 @media (max-width: 600px) {
@@ -60,5 +68,11 @@ button {
 
   .home h1 {
     font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .card-info {
+    width: 50%;
   }
 }

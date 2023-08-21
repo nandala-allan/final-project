@@ -41,7 +41,7 @@ function Home() {
             <h2 className="font-bold text-2xl">Search For Case</h2>
             <p className="text-lg">Search for a case form</p>
             <button
-              className="bg-blue-500 px-4 py-3 font-medium uppercase text-sm"
+              className="px-4 py-3 font-medium uppercase text-sm sbg-blue-500"
               type="submit"
               onClick={naviget}
             >

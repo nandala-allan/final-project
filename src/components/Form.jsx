@@ -383,7 +383,23 @@ function Form() {
           OFFICER IN-CHARGE OF CASE
         </h1>
         <div>
-          <TextInput
+          <Select
+            value={formData.rank}
+            onChange={(value) =>
+              handleChanges({ target: { name: "rank", value: value } })
+            }
+            label="Rank"
+            placeholder="Select Officer In Charge Rank"
+            data={[
+              { value: "Officer", label: "Officer" },
+              { value: "Corporal", label: "Corporal" },
+              { value: "Sergeant", label: "Sergeant" },
+              { value: "Lieutenant", label: "Lieutenant" },
+            ]}
+            size="md"
+          />
+
+          {/* <TextInput
             name="rank"
             value={formData.rank}
             onChange={handleChanges}
@@ -392,7 +408,8 @@ function Form() {
             size="xs"
             withAsterisk
             className="py-8 ..."
-          />
+          /> */}
+
           <TextInput
             name="officerName"
             value={formData.officerName}

@@ -1,4 +1,5 @@
 import React from "react";
+import "../components/table.css";
 
 const Datatable = ({ searchedData }) => {
   if (!searchedData || searchedData.length === 0) {
@@ -6,7 +7,7 @@ const Datatable = ({ searchedData }) => {
   }
 
   return (
-    <div>
+    <div className="table">
       {searchedData.map((item) => (
         <ul key={item.id}>
           <li>Reference Number :{item.attributes.referenceNumber}</li>

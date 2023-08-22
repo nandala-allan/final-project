@@ -2,6 +2,8 @@ import { Input, Button, Container, Flex, Space } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
 import Datatable from "./table";
+import "../components/SearchForm.css";
+import Header from "./Header";
 
 const SearchForm = () => {
   const [inputValue, setInputValue] = useState("");
@@ -63,22 +65,20 @@ const SearchForm = () => {
       console.error("Error fetching data:", error);
     }
   };
-  // const getData = async () => {
+  const getData = async () => {};
 
-  // };
+  getData();
 
-  // getData();
-
-  // const handleSearch = () => {
-  //   if (responseData) {
-  //     // Filter the data based on the 'name' property
-  //     const filteredData = responseData.data.data.filter((item) =>
-  //       item.id.toLowerCase().includes(inputValue.toLowerCase())
-  //     );
-  //     setSearchedData(filteredData);
-  //   }
-  //   console.log(filteredData);
-  // };
+  const handleSearch = () => {
+    if (responseData) {
+      // Filter the data based on the 'name' property
+      const filteredData = responseData.data.data.filter((item) =>
+        item.id.toLowerCase().includes(inputValue.toLowerCase())
+      );
+      setSearchedData(filteredData);
+    }
+    console.log(filteredData);
+  };
   const handleChenges = (e) => {
     const inputValue = e.target.value;
     setInputValue(inputValue);
@@ -86,8 +86,9 @@ const SearchForm = () => {
 
   return (
     <>
-      <Container mt={120}>
-        <Flex direction={{ base: "column", sm: "row" }} gap="sm" align="center">
+      <Header />
+      <Container className="container">
+        <Flex className="flex" direction={{ base: "column", sm: "row" }} gap="sm" align="center">
           <Input
             onChange={handleChenges}
             icon={<IconSearch size={18} />}
@@ -105,7 +106,7 @@ const SearchForm = () => {
       {responseData && (
         <div>
           <h1>{`${inputValue}'s Data`}</h1>
-          <Datatable searchedData={searchedData} />
+          <Datatable className="table" searchedData={searchedData} />
         </div>
       )}
     </>

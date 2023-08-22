@@ -376,7 +376,7 @@ function Form() {
           OFFICER IN-CHARGE OF CASE
         </h1>
         <div>
-          <Select
+        <Select
             value={formData.rank}
             onChange={(value) =>
               handleChanges({ target: { name: "rank", value: value } })
@@ -391,19 +391,7 @@ function Form() {
             ]}
             size="md"
           />
-
-          {/* <TextInput
-            name="rank"
-            value={formData.rank}
-            onChange={handleChanges}
-            placeholder="Pick file"
-            label="Rank"
-            size="md"
-            withAsterisk
-            className="py-8 ..."
-          /> */}
-
-          <Select
+               <Select
             value={formData.officerName}
             onChange={(value) =>
               handleChanges({ target: { name: "officerName", value: value } })
@@ -419,16 +407,7 @@ function Form() {
             size="md"
           />
 
-          {/* <TextInput
-            name="officerName"
-            value={formData.officerName}
-            onChange={handleChanges}
-            placeholder="Pick file"
-            label="Name"
-            size="md"
-            withAsterisk
-            className="py-8 ..."
-          /> */}
+         
           <TextInput
             name="policeStation"
             value={formData.policeStation}

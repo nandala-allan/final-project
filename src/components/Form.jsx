@@ -240,182 +240,182 @@ const [formData,setFormData]=useState({
           <Checkbox label="female" />
 
           
-          /////// */}
-          <TextInput
-          name="victimTelephone"
-          value={formData.victimTelephone}
-          onChange={handleChanges}
-          placeholder="Pick file"
-          label="Telephone"
-          size="xs"
-          withAsterisk
-          className="py-8 ..."
-          />
-        </div>
-        <TextInput
-        name="victimResidence"
-        value={formData.victimResidence}
-        onChange={handleChanges}
-          placeholder="Pick file"
-          label="Place Of Residence"
-          size="xs"
-          withAsterisk
-          className="py-8 ..."
-        />
-        <Textarea
-        name="caseDetailes"
-        value={formData.caseDetailes}
-        onChange={handleChanges}
-          placeholder="Tell Us What Happened"
-          label="Case Detail"
-          size="xl"
-          withAsterisk
-        />
-      </div>
-      <h5>When Did This Happen</h5>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <DateInput
-        name="happenedDate"
-        value={formData.happenedDate}
-        onChange={(happened)=>handleChanges({target:{name:"happenedDate",value:happened}})}
-          label="Date Birth"
-          placeholder="Date input"
-          size="xs"
-        />
+//           /////// */}
+//           <TextInput
+//           name="victimTelephone"
+//           value={formData.victimTelephone}
+//           onChange={handleChanges}
+//           placeholder="Pick file"
+//           label="Telephone"
+//           size="xs"
+//           withAsterisk
+//           className="py-8 ..."
+//           />
+//         </div>
+//         <TextInput
+//         name="victimResidence"
+//         value={formData.victimResidence}
+//         onChange={handleChanges}
+//           placeholder="Pick file"
+//           label="Place Of Residence"
+//           size="xs"
+//           withAsterisk
+//           className="py-8 ..."
+//         />
+//         <Textarea
+//         name="caseDetailes"
+//         value={formData.caseDetailes}
+//         onChange={handleChanges}
+//           placeholder="Tell Us What Happened"
+//           label="Case Detail"
+//           size="xl"
+//           withAsterisk
+//         />
+//       </div>
+//       <h5>When Did This Happen</h5>
+//       <div style={{ display: "flex", justifyContent: "space-between" }}>
+//         <DateInput
+//         name="happenedDate"
+//         value={formData.happenedDate}
+//         onChange={(happened)=>handleChanges({target:{name:"happenedDate",value:happened}})}
+//           label="Date Birth"
+//           placeholder="Date input"
+//           size="xs"
+//         />
 
-        {/* <TimeInput
-          label="Time"
-          name="happenedTime"
-          value={formData.happenedTime}
+//         {/* <TimeInput
+//           label="Time"
+//           name="happenedTime"
+//           value={formData.happenedTime}
       
-          onChange={handleChanges}
+//           onChange={handleChanges}
     
-          rightSection={
-            <ActionIcon>
-              <IconClock size="1rem" stroke={1.5} />
-            </ActionIcon>
-          }
-        /> */}
-      </div>
-      <TextInput
-      name="crimeScene"
-      value={formData.crimeScene}
-      onChange={handleChanges}
-      placeholder="Pick file"
-      label="Place Of Residence"
-      size="xs"
-      withAsterisk
-      className="py-8 ..."
-      />
-      <h5>Any Witness</h5>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <TextInput
-          name="witnessName"
-          value={formData.witnessName}
-          onChange={handleChanges}
-          placeholder="Pick file"
-          label="Name"
-          size="xs"
-          withAsterisk
-          className="py-8 ..."
-        />
+//           rightSection={
+//             <ActionIcon>
+//               <IconClock size="1rem" stroke={1.5} />
+//             </ActionIcon>
+//           }
+//         /> */}
+//       </div>
+//       <TextInput
+//       name="crimeScene"
+//       value={formData.crimeScene}
+//       onChange={handleChanges}
+//       placeholder="Pick file"
+//       label="Place Of Residence"
+//       size="xs"
+//       withAsterisk
+//       className="py-8 ..."
+//       />
+//       <h5>Any Witness</h5>
+//       <div style={{ display: "flex", justifyContent: "space-between" }}>
+//         <TextInput
+//           name="witnessName"
+//           value={formData.witnessName}
+//           onChange={handleChanges}
+//           placeholder="Pick file"
+//           label="Name"
+//           size="xs"
+//           withAsterisk
+//           className="py-8 ..."
+//         />
 
-        <TextInput
-         name="witnessTel"
-         value={formData.witnessTel}
-         onChange={handleChanges}
-          placeholder="phone number"
-          label="Tel"
-          size="xs"
-          withAsterisk
-          className="py-8 ..."
-        />
-      </div>
-      <TextInput
-        name="injuries"
-        value={formData.injuries}
-        onChange={handleChanges}
-        placeholder="Pick file"
-        label="Injuries?(If Any Specify)"
-        size="xs"
-        withAsterisk
-        className="py-8 ..."
-      />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          padding: 20,
-        }}
-      >
-        {/* //////////////////////////// */}
-        Did You Get Any Medical Assistance
+//         <TextInput
+//          name="witnessTel"
+//          value={formData.witnessTel}
+//          onChange={handleChanges}
+//           placeholder="phone number"
+//           label="Tel"
+//           size="xs"
+//           withAsterisk
+//           className="py-8 ..."
+//         />
+//       </div>
+//       <TextInput
+//         name="injuries"
+//         value={formData.injuries}
+//         onChange={handleChanges}
+//         placeholder="Pick file"
+//         label="Injuries?(If Any Specify)"
+//         size="xs"
+//         withAsterisk
+//         className="py-8 ..."
+//       />
+//       <div
+//         style={{
+//           display: "flex",
+//           justifyContent: "space-around",
+//           alignItems: "center",
+//           padding: 20,
+//         }}
+//       >
+//         {/* //////////////////////////// */}
+//         Did You Get Any Medical Assistance
        
-        {/* <Checkbox label="No" onChange={(No)=>handleChanges({target:{name:"medicalAssistance",value:No}})}/>
-        <Checkbox label="Yes" onChange={(Yes)=>handleChanges({target:{name:"medicalAssistance",value:Yes}})} /> */}
+//         {/* <Checkbox label="No" onChange={(No)=>handleChanges({target:{name:"medicalAssistance",value:No}})}/>
+//         <Checkbox label="Yes" onChange={(Yes)=>handleChanges({target:{name:"medicalAssistance",value:Yes}})} /> */}
 
 
-<Radio.Group
-           name="medicalAssistance1"
-           value={formData.medicalAssistance1}
-           label="Did you receive medical assistance ?"
-           description="medicalAssistance1"
-           withAsterisk
-           onChange={(value) => handleChanges({ target: { name: "medicalAssistance1", value } })}
-    >
-      <Group mt="xs">
-        <Radio value="no" label="No" />
-        <Radio value="yes" label="Yes" />
+// <Radio.Group
+//            name="medicalAssistance1"
+//            value={formData.medicalAssistance1}
+//            label="Did you receive medical assistance ?"
+//            description="medicalAssistance1"
+//            withAsterisk
+//            onChange={(value) => handleChanges({ target: { name: "medicalAssistance1", value } })}
+//     >
+//       <Group mt="xs">
+//         <Radio value="no" label="No" />
+//         <Radio value="yes" label="Yes" />
         
-      </Group>
-       </Radio.Group>
-      </div>
-      <h1 style={{ textAlign: "center", padding: 20 }}>
-        OFFICER IN-CHARGE OF CASE
-      </h1>
-      <div>
-        <TextInput
-          name="rank"
+//       </Group>
+//        </Radio.Group>
+//       </div>
+//       <h1 style={{ textAlign: "center", padding: 20 }}>
+//         OFFICER IN-CHARGE OF CASE
+//       </h1>
+//       <div>
+//         <TextInput
+//           name="rank"
           
-          value={formData.rank}
-          onChange={handleChanges}
-          placeholder="Pick file"
-          label="Rank"
-          size="xs"
-          withAsterisk
-          className="py-8 ..."
-        />
-        <TextInput
-          name="officerName"
-          value={formData.officerName}
-          onChange={handleChanges}
-          placeholder="Pick file"
-          label="Name"
-          size="xs"
-          withAsterisk
-          className="py-8 ..."
-        />
-        <TextInput
-        name="policeStation"
-        value={formData.policeStation}
-        onChange={handleChanges}
-          placeholder="Pick file"
-          label="Police Station"
-          size="xs"
-          withAsterisk
-          className="py-8 ..."
-        />
-      </div>
+//           value={formData.rank}
+//           onChange={handleChanges}
+//           placeholder="Pick file"
+//           label="Rank"
+//           size="xs"
+//           withAsterisk
+//           className="py-8 ..."
+//         />
+//         <TextInput
+//           name="officerName"
+//           value={formData.officerName}
+//           onChange={handleChanges}
+//           placeholder="Pick file"
+//           label="Name"
+//           size="xs"
+//           withAsterisk
+//           className="py-8 ..."
+//         />
+//         <TextInput
+//         name="policeStation"
+//         value={formData.policeStation}
+//         onChange={handleChanges}
+//           placeholder="Pick file"
+//           label="Police Station"
+//           size="xs"
+//           withAsterisk
+//           className="py-8 ..."
+//         />
+//       </div>
 
-      <div>
-        <Button type="submit" className="mx-8 ...">SUBMIT FORM</Button>
-      </div>
-      </form>
+//       <div>
+//         <Button type="submit" className="mx-8 ...">SUBMIT FORM</Button>
+//       </div>
+//       </form>
   
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
-export default Form;
+// export default Form;
 

@@ -13,7 +13,6 @@ import App from "./App";
 // const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 const router = createBrowserRouter([
-
   {
     path: "/",
     element: <App />,
@@ -28,9 +27,9 @@ const router = createBrowserRouter([
     element: <Form />,
   },
   {
-    path:"/SearchForm",
-    element:<SearchForm/>
-  }
+    path: "/SearchForm",
+    element: <SearchForm />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -43,9 +42,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       
     }}
     >
-    <RouterProvider router={router} />
-    {/* <App/> */}
+      <RouterProvider router={router} />
+      {/* <App/> */}
     </Auth0Provider>
-    
   </React.StrictMode>
 );

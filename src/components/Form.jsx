@@ -56,7 +56,10 @@ function Form() {
     };
 
     axios
-      .post("http://localhost:1337/api/final-projects", userData)
+      .post(
+        "https://finalproject-strapi-back-end.onrender.com/api/final-projects",
+        userData
+      )
       .then((response) => {
         console.log(response.data);
       });
@@ -315,18 +318,6 @@ function Form() {
             placeholder="Date input"
             size="md"
           />
-
-          {/* <TimeInput
-            label="Time"
-            name="happenedTime"
-            value={formData.happenedTime}
-            onChange={handleChanges}
-            rightSection={
-              <ActionIcon>
-                <IconClock size="1rem" stroke={1.5} />
-              </ActionIcon>
-            }
-          /> */}
         </div>
         <TextInput
           name="crimeScene"
@@ -401,7 +392,23 @@ function Form() {
           OFFICER IN-CHARGE OF CASE
         </h1>
         <div>
-          <TextInput
+          <Select
+            value={formData.rank}
+            onChange={(value) =>
+              handleChanges({ target: { name: "rank", value: value } })
+            }
+            label="Rank"
+            placeholder="Select Officer In Charge Rank"
+            data={[
+              { value: "Officer", label: "Officer" },
+              { value: "Corporal", label: "Corporal" },
+              { value: "Sergeant", label: "Sergeant" },
+              { value: "Lieutenant", label: "Lieutenant" },
+            ]}
+            size="md"
+          />
+
+          {/* <TextInput
             name="rank"
             value={formData.rank}
             onChange={handleChanges}
@@ -410,8 +417,25 @@ function Form() {
             size="md"
             withAsterisk
             className="py-8 ..."
+          /> */}
+
+          <Select
+            value={formData.officerName}
+            onChange={(value) =>
+              handleChanges({ target: { name: "officerName", value: value } })
+            }
+            label="Officer In Charge"
+            placeholder="Officer In Charge"
+            data={[
+              { value: "Akiki", label: "Julian" },
+              { value: "Kirondo", label: "Abdul" },
+              { value: "Odongo", label: "Simon" },
+              { value: "Kasule", label: "Moses" },
+            ]}
+            size="md"
           />
-          <TextInput
+
+          {/* <TextInput
             name="officerName"
             value={formData.officerName}
             onChange={handleChanges}
@@ -420,7 +444,7 @@ function Form() {
             size="md"
             withAsterisk
             className="py-8 ..."
-          />
+          /> */}
           <TextInput
             name="policeStation"
             value={formData.policeStation}

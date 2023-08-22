@@ -1,7 +1,7 @@
 import { Input, Button, Container, Flex, Space } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
-import Datatable from "./table";
+import Table from "./Table";
 import "../components/SearchForm.css";
 import Header from "./Header";
 
@@ -88,7 +88,12 @@ const SearchForm = () => {
     <>
       <Header />
       <Container className="container">
-        <Flex className="flex" direction={{ base: "column", sm: "row" }} gap="sm" align="center">
+        <Flex
+          className="flex"
+          direction={{ base: "column", sm: "row" }}
+          gap="sm"
+          align="center"
+        >
           <Input
             onChange={handleChenges}
             icon={<IconSearch size={18} />}
@@ -100,13 +105,13 @@ const SearchForm = () => {
             Search
           </Button>
         </Flex>
-        <Space h="md" />
+        {/* <Space h="md" /> */}
       </Container>
 
       {responseData && (
         <div>
           <h1>{`${inputValue}'s Data`}</h1>
-          <Datatable className="table" searchedData={searchedData} />
+          <Table className="table" searchedData={searchedData} />
         </div>
       )}
     </>

@@ -1,15 +1,15 @@
 import React from "react";
 import "../components/table.css";
 
-const Datatable = ({ searchedData }) => {
+const Table = ({ searchedData }) => {
   if (!searchedData || searchedData.length === 0) {
-    return <div>No Data</div>;
+    return <div className="h2" >No Data</div>;
   }
 
   return (
     <div className="table">
       {searchedData.map((item) => (
-        <ul key={item.id}>
+        <ul className="ul" key={item.id}>
           <li>Reference Number :{item.attributes.referenceNumber}</li>
           <li>Complainer Name :{item.attributes.complainerName}</li>
           <li>Complainer Age :{item.attributes.complainerAge}</li>
@@ -24,4 +24,4 @@ const Datatable = ({ searchedData }) => {
   );
 };
 
-export default Datatable;
+export default Table;

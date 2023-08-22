@@ -11,7 +11,7 @@ const SearchForm = () => {
   const handleButtonClick = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/final-projects"
+        "https://finalproject-strapi-back-end.onrender.com/api/final-projects"
       );
       //localhost:1337/api/final-projects
       //reqres.in/api/login

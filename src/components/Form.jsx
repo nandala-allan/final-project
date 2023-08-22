@@ -1,11 +1,15 @@
-import { FileInput, Input, TextInput, Box } from "@mantine/core";
+import { FileInput, Input, TextInput, Checkbox } from "@mantine/core";
 import { useState } from "react";
 import { DateInput } from "@mantine/dates";
 import { Select } from "@mantine/core";
 import { Textarea } from "@mantine/core";
 import { NumberInput } from "@mantine/core";
 import { Button } from "@mantine/core";
-import { Radio, Group } from "@mantine/core";
+import { ActionIcon } from "@mantine/core";
+import { TimeInput } from "@mantine/dates";
+import { IconClock } from "@tabler/icons-react";
+import {  Radio,Group} from '@mantine/core';
+
 function Form() {
   const [formData, setFormData] = useState({
     referenceNumber: "",
@@ -41,16 +45,17 @@ function Form() {
     }
     setFormData({
       ...formData,
-      [name]: value,
-    });
-  };
+      [name]:value
+    })
+  }
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = {
       data: {
-        ...formData,
-      },
+         ...formData 
+        },
     };
 
     axios
@@ -60,11 +65,7 @@ function Form() {
       });
   };
   return (
-    <Box
-      maw={1440}
-      mx="auto"
-      style={{ width: "", padding: 50, margin: "auto" }}
-    >
+    <div style={{ width: "1440px", padding: 50, margin: "auto" }}>
       <form onSubmit={handleSubmit}>
         <h1 style={{ textAlign: "center", padding: 20, fontWeight: 600 }}>
           COMPLAINER
@@ -419,13 +420,12 @@ function Form() {
           />
         </div>
 
-        <div>
-          <Button type="submit" className=" bg-blue-500">
-            SUBMIT FORM
-          </Button>
-        </div>
+      <div>
+        <Button type="submit" className="mx-8 ...">SUBMIT FORM</Button>
+      </div>
       </form>
-    </Box>
+  
+    </div>
   );
 }
 

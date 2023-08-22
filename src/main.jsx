@@ -40,6 +40,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     clientId="Ke1JqD7iN0rJnHAOInDhTRAQXz36xYGI"
     authorizationParams={{
       redirect_uri: window.location.origin
+      
     }}
     >
     <RouterProvider router={router} />

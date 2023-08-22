@@ -56,7 +56,10 @@ function Form() {
     };
 
     axios
-      .post("http://localhost:1337/api/final-projects", userData)
+      .post(
+        "https://finalproject-strapi-back-end.onrender.com/api/final-projects",
+        userData
+      )
       .then((response) => {
         console.log(response.data);
       });

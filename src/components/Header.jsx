@@ -1,4 +1,5 @@
 import "../components/Header.css";
+import LogOutButton from "../components/LogOutbutton";
 
 function Header() {
   return (
@@ -9,7 +10,8 @@ function Header() {
           <h1>KANZU POLICE FORCE</h1>
           <p>Code Protect and Serve</p>
         </div>
-        <img src="../Kanzu Police.png" />
+        {/* <img src="../Kanzu Police.png" /> */}
+        <LogOutButton />
       </div>
 
       <div className="flag">

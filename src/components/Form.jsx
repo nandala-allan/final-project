@@ -1,4 +1,4 @@
-import { FileInput, Input, TextInput } from "@mantine/core";
+import { FileInput, Input, TextInput, Box } from "@mantine/core";
 import { useState } from "react";
 import { DateInput } from "@mantine/dates";
 import { Select } from "@mantine/core";
@@ -6,40 +6,37 @@ import { Textarea } from "@mantine/core";
 import { NumberInput } from "@mantine/core";
 // import { useRef } from 'react';
 import { Button } from "@mantine/core";
-
 import { Radio, Group } from "@mantine/core";
-
 function Form() {
   const [formData, setFormData] = useState({
-    // referenceNumber:"",
-    // complainerName:"",
-    // regestredData:"",
-    // complainerAge:"",
-    // complainerTelephone:"",
-    // // others:"",
-    complainerPlaceOfBirth: "",
-    // complainerResidence:"",
-    // complainerId:"",
-    // complainerEmail:"",
-    // offence:"",
-    // victimName:"",
-    // victimTelephone:"",
-    // victimResidence:"",
-    // caseDetailes:"",
-    // complainersGender:"",
-    // victimsgender:"",
-    // happenedDate:"",
-    // crimeScene:"",
-    // witnessName:"",
-    // witnessTel:"",
-    // injuries:"",
-    // medicalAssistance1:"",
-    // rank:"",
-    // officerName:"",
-    // policeStation:""
+    // referenceNumber: "",
+    // complainerName: "",
+    // regestredData: "",
+    // complainerAge: "",
+    // complainerTelephone: "",
+    // others: "",
+    // complainerPlaceOfBirth: "",
+    // complainerResidence: "",
+    // complainerId: "",
+    // complainerEmail: "",
+    // offence: "",
+    // victimName: "",
+    // victimTelephone: "",
+    // victimResidence: "",
+    // caseDetailes: "",
+    // gender: "",
+    // happenedDate: "",
+    // crimeScene: "",
+    // witnessName: "",
+    // witnessTel: "",
+    // injuries: "",
+    // medicalAssistance: "",
+    // rank: "",
+    officerName: "",
+    policeStation: "",
   });
   const handleChanges = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value)
     const { name, value } = e.target;
     if (!e.target) {
       return null;
@@ -65,9 +62,15 @@ function Form() {
       });
   };
   return (
-    <div style={{ width: "1440px", padding: 50, margin: "auto" }}>
+    <Box
+      maw={1440}
+      mx="auto"
+      style={{ width: "", padding: 50, margin: "auto" }}
+    >
       <form onSubmit={handleSubmit}>
-        <h1 style={{ textAlign: "center", padding: 20 }}>COMPLAINER</h1>
+        <h1 style={{ textAlign: "center", padding: 20, fontWeight: 600 }}>
+          COMPLAINER
+        </h1>
         <div
           style={{
             display: "flex",
@@ -101,9 +104,10 @@ function Form() {
             name="complainerName"
             value={formData.complainerName}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="FullName"
             label="Name"
-            size="xs"
+            size="md"
+            mt="md"
             withAsterisk
             className="py-8 ..."
           />
@@ -111,7 +115,7 @@ function Form() {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
+            flexDirection: "column",
             justifyContent: "space-between",
             border: "1px solid black",
             padding: 20,
@@ -124,7 +128,8 @@ function Form() {
             }
             label="Date Birth"
             placeholder="Date input"
-            size="xs"
+            size="md"
+            mt="md"
           />
           <NumberInput
             value={formData.complainerAge}
@@ -132,26 +137,29 @@ function Form() {
               handleChanges({ target: { name: "complainerAge", value: age } })
             }
             placeholder="Your age"
-            label="Your age"
+            label="Input Your age"
             withAsterisk
+            mt="md"
           />
           <TextInput
             name="complainerTelephone"
             value={formData.complainerTelephone}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="Telephone Number"
             label="Telephone"
-            size="xs"
+            size="md"
+            mt="md"
             withAsterisk
           />
           <Radio.Group
-            name="complainersGender"
-            value={formData.complainersGender}
+            mt="md"
+            name="gender"
+            value={formData.gender}
             label="sex"
             description="select complainer's gender "
             withAsterisk
             onChange={(value) =>
-              handleChanges({ target: { name: "complainersGender", value } })
+              handleChanges({ target: { name: "gender", value } })
             }
           >
             <Group mt="xs">
@@ -159,55 +167,69 @@ function Form() {
               <Radio value="female" label="Female" />
             </Group>
           </Radio.Group>
-          {/* <TextInput
-          name="others"
-          value={formData.others}
-          onChange={handleChanges}
-          placeholder="Pick file"
-          label="Other"
-          size="xs"
-          withAsterisk
-        /> */}
+          <TextInput
+            name="others"
+            value={formData.others}
+            onChange={handleChanges}
+            placeholder="Pick file"
+            label="Other"
+            size="xs"
+            mt="md"
+            withAsterisk
+          />
         </div>
         <div>
           <TextInput
             name="complainerPlaceOfBirth"
             value={formData.complainerPlaceOfBirth}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="Enter place birth"
             label="Place Of Birth"
-            size="xs"
+            size="md"
+            mt="md"
             withAsterisk
           />
           <TextInput
             name="complainerResidence"
             value={formData.complainerResidence}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="Where do you stay?"
             label="Place Of Residence"
-            size="xs"
+            size="md"
+            mt="md"
             withAsterisk
           />
           <TextInput
             name="complainerId"
             value={formData.complainerId}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="Your national id number (NIN)"
             label="National ID Number (NIN)"
-            size="xs"
+            size="md"
+            mt="md"
             withAsterisk
           />
           <TextInput
             name="complainerEmail"
             value={formData.complainerEmail}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="Your email Address"
             label="Email Address"
-            size="xs"
+            size="md"
+            mt="md"
             withAsterisk
           />
         </div>
-        <h1 style={{ textAlign: "center", padding: 20 }}>VICTIM DETAILS</h1>
+        <h1
+          style={{
+            textAlign: "center",
+            padding: 20,
+            fontWeight: 600,
+            margin: 10,
+          }}
+        >
+          VICTIM DETAILS
+        </h1>
         <div>
           <Select
             value={formData.offence}
@@ -215,12 +237,13 @@ function Form() {
               handleChanges({ target: { name: "offence", value: value } })
             }
             label="Offence Type:"
-            placeholder="Pick one"
+            placeholder="Choose type of offence commited"
             data={[
               { value: "accident", label: "Accident" },
               { value: "steal", label: "Stealing" },
               { value: "murder", label: "Murder" },
             ]}
+            size="md"
           />
 
           <TextInput
@@ -229,7 +252,7 @@ function Form() {
             onChange={handleChanges}
             placeholder="Pick file"
             label="Name Of Person Reported"
-            size="xs"
+            size="md"
             withAsterisk
             className="py-8 ..."
           />
@@ -253,7 +276,7 @@ function Form() {
               onChange={handleChanges}
               placeholder="Pick file"
               label="Telephone"
-              size="xs"
+              size="md"
               withAsterisk
               className="py-8 ..."
             />
@@ -264,7 +287,7 @@ function Form() {
             onChange={handleChanges}
             placeholder="Pick file"
             label="Place Of Residence"
-            size="xs"
+            size="md"
             withAsterisk
             className="py-8 ..."
           />
@@ -290,22 +313,8 @@ function Form() {
             }
             label="Date Birth"
             placeholder="Date input"
-            size="xs"
+            size="md"
           />
-
-          {/* <TimeInput
-          label="Time"
-          name="happenedTime"
-          value={formData.happenedTime}
-      
-          onChange={handleChanges}
-    
-          rightSection={
-            <ActionIcon>
-              <IconClock size="1rem" stroke={1.5} />
-            </ActionIcon>
-          }
-        /> */}
         </div>
         <TextInput
           name="crimeScene"
@@ -313,7 +322,7 @@ function Form() {
           onChange={handleChanges}
           placeholder="Pick file"
           label="Place Of Residence"
-          size="xs"
+          size="md"
           withAsterisk
           className="py-8 ..."
         />
@@ -325,7 +334,7 @@ function Form() {
             onChange={handleChanges}
             placeholder="Pick file"
             label="Name"
-            size="xs"
+            size="md"
             withAsterisk
             className="py-8 ..."
           />
@@ -336,7 +345,7 @@ function Form() {
             onChange={handleChanges}
             placeholder="phone number"
             label="Tel"
-            size="xs"
+            size="md"
             withAsterisk
             className="py-8 ..."
           />
@@ -347,30 +356,27 @@ function Form() {
           onChange={handleChanges}
           placeholder="Pick file"
           label="Injuries?(If Any Specify)"
-          size="xs"
+          size="md"
           withAsterisk
           className="py-8 ..."
         />
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
             padding: 20,
           }}
         >
           {/* //////////////////////////// */}
-          Did You Get Any Medical Assistance
+          {/* Did You Get Any Medical Assistance */}
           {/* <Checkbox label="No" onChange={(No)=>handleChanges({target:{name:"medicalAssistance",value:No}})}/>
         <Checkbox label="Yes" onChange={(Yes)=>handleChanges({target:{name:"medicalAssistance",value:Yes}})} /> */}
           <Radio.Group
-            name="medicalAssistance1"
-            value={formData.medicalAssistance1}
+            name="medicalAssistance"
+            value={formData.medicalAssistance}
             label="Did you receive medical assistance ?"
-            description="medicalAssistance1"
+            description="medicalAssistance"
             withAsterisk
             onChange={(value) =>
-              handleChanges({ target: { name: "medicalAssistance1", value } })
+              handleChanges({ target: { name: "medicalAssistance", value } })
             }
           >
             <Group mt="xs">
@@ -379,7 +385,7 @@ function Form() {
             </Group>
           </Radio.Group>
         </div>
-        <h1 style={{ textAlign: "center", padding: 20 }}>
+        <h1 style={{ textAlign: "center", padding: 20, fontWeight: 600 }}>
           OFFICER IN-CHARGE OF CASE
         </h1>
         <div>
@@ -405,7 +411,7 @@ function Form() {
             onChange={handleChanges}
             placeholder="Pick file"
             label="Rank"
-            size="xs"
+            size="md"
             withAsterisk
             className="py-8 ..."
           /> */}
@@ -432,30 +438,29 @@ function Form() {
             onChange={handleChanges}
             placeholder="Pick file"
             label="Name"
-            size="xs"
+            size="md"
             withAsterisk
             className="py-8 ..."
           /> */}
-
           <TextInput
             name="policeStation"
             value={formData.policeStation}
             onChange={handleChanges}
             placeholder="Pick file"
             label="Police Station"
-            size="xs"
+            size="md"
             withAsterisk
             className="py-8 ..."
           />
         </div>
 
         <div>
-          <Button type="submit" className="mx-8 ...">
+          <Button type="submit" className=" bg-blue-500">
             SUBMIT FORM
           </Button>
         </div>
       </form>
-    </div>
+    </Box>
   );
 }
 

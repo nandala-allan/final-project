@@ -4,39 +4,37 @@ import { DateInput } from "@mantine/dates";
 import { Select } from "@mantine/core";
 import { Textarea } from "@mantine/core";
 import { NumberInput } from "@mantine/core";
-// import { useRef } from 'react';
 import { Button } from "@mantine/core";
 import { Radio, Group } from "@mantine/core";
 function Form() {
   const [formData, setFormData] = useState({
-    // referenceNumber: "",
-    // complainerName: "",
-    // regestredData: "",
-    // complainerAge: "",
-    // complainerTelephone: "",
-    // others: "",
-    // complainerPlaceOfBirth: "",
-    // complainerResidence: "",
-    // complainerId: "",
-    // complainerEmail: "",
-    // offence: "",
-    // victimName: "",
-    // victimTelephone: "",
-    // victimResidence: "",
-    // caseDetailes: "",
-    // gender: "",
-    // happenedDate: "",
-    // crimeScene: "",
-    // witnessName: "",
-    // witnessTel: "",
-    // injuries: "",
-    // medicalAssistance: "",
-    // rank: "",
+    referenceNumber: "",
+    complainerName: "",
+    regestredData: "",
+    complainerAge: "",
+    complainerTelephone: "",
+    complainersGender: "",
+    complainerResidence: "",
+    complainerId: "",
+    complainerEmail: "",
+    offence: "",
+    victimName: "",
+    victimTelephone: "",
+    victimsgender:"",
+    victimResidence: "",
+    caseDetailes: "",
+    gender: "",
+    happenedDate: "",
+    crimeScene: "",
+    witnessName: "",
+    witnessTel: "",
+    injuries: "",
+    medicalAssistance1: "",
+    rank: "",
     officerName: "",
     policeStation: "",
   });
   const handleChanges = (e) => {
-    // console.log(e.target.value)
     const { name, value } = e.target;
     if (!e.target) {
       return null;
@@ -56,7 +54,7 @@ function Form() {
     };
 
     axios
-      .post("http://localhost:1337/api/final-projects", userData)
+      .post("https://finalproject-strapi-back-end.onrender.com/api/final-projects", userData)
       .then((response) => {
         console.log(response.data);
       });
@@ -153,13 +151,13 @@ function Form() {
           />
           <Radio.Group
             mt="md"
-            name="gender"
-            value={formData.gender}
+            name="complainersGender"
+            value={formData.complainersGender}
             label="sex"
-            description="select complainer's gender "
+            description="select complainer's complainersGender "
             withAsterisk
             onChange={(value) =>
-              handleChanges({ target: { name: "gender", value } })
+              handleChanges({ target: { name: "complainersGender", value } })
             }
           >
             <Group mt="xs">
@@ -167,28 +165,8 @@ function Form() {
               <Radio value="female" label="Female" />
             </Group>
           </Radio.Group>
-          <TextInput
-            name="others"
-            value={formData.others}
-            onChange={handleChanges}
-            placeholder="Pick file"
-            label="Other"
-            size="xs"
-            mt="md"
-            withAsterisk
-          />
         </div>
         <div>
-          <TextInput
-            name="complainerPlaceOfBirth"
-            value={formData.complainerPlaceOfBirth}
-            onChange={handleChanges}
-            placeholder="Enter place birth"
-            label="Place Of Birth"
-            size="md"
-            mt="md"
-            withAsterisk
-          />
           <TextInput
             name="complainerResidence"
             value={formData.complainerResidence}
@@ -263,23 +241,34 @@ function Form() {
               alignItems: "center",
             }}
           >
-            {/* //////// */}
-            {/* Gender:
-          <Checkbox label="Male" />
-          <Checkbox label="female" />
-
           
-          /////// */}
             <TextInput
               name="victimTelephone"
               value={formData.victimTelephone}
               onChange={handleChanges}
               placeholder="Pick file"
-              label="Telephone"
+              label="Telephone "
               size="md"
               withAsterisk
               className="py-8 ..."
             />
+
+<Radio.Group
+            mt="md"
+            name="victimsgender"
+            value={formData.victimsgender}
+            label="sex"
+            description="select complainer's victimsgender "
+            withAsterisk
+            onChange={(value) =>
+              handleChanges({ target: { name: "victimsgender", value } })
+            }
+          >
+            <Group mt="xs">
+              <Radio value="male" label="Male" />
+              <Radio value="female" label="Female" />
+            </Group>
+          </Radio.Group>
           </div>
           <TextInput
             name="victimResidence"
@@ -311,28 +300,16 @@ function Form() {
                 target: { name: "happenedDate", value: happened },
               })
             }
-            label="Date Birth"
+            label="Date"
             placeholder="Date input"
             size="md"
           />
-
-          {/* <TimeInput
-            label="Time"
-            name="happenedTime"
-            value={formData.happenedTime}
-            onChange={handleChanges}
-            rightSection={
-              <ActionIcon>
-                <IconClock size="1rem" stroke={1.5} />
-              </ActionIcon>
-            }
-          /> */}
         </div>
         <TextInput
           name="crimeScene"
           value={formData.crimeScene}
           onChange={handleChanges}
-          placeholder="Pick file"
+          placeholder="crimeScene"
           label="Place Of Residence"
           size="md"
           withAsterisk
@@ -377,18 +354,15 @@ function Form() {
             padding: 20,
           }}
         >
-          {/* //////////////////////////// */}
-          {/* Did You Get Any Medical Assistance */}
-          {/* <Checkbox label="No" onChange={(No)=>handleChanges({target:{name:"medicalAssistance",value:No}})}/>
-        <Checkbox label="Yes" onChange={(Yes)=>handleChanges({target:{name:"medicalAssistance",value:Yes}})} /> */}
+          
           <Radio.Group
-            name="medicalAssistance"
-            value={formData.medicalAssistance}
+            name="medicalAssistance1"
+            value={formData.medicalAssistance1}
             label="Did you receive medical assistance ?"
-            description="medicalAssistance"
+            description="medicalAssistance1"
             withAsterisk
             onChange={(value) =>
-              handleChanges({ target: { name: "medicalAssistance", value } })
+              handleChanges({ target: { name: "medicalAssistance1", value } })
             }
           >
             <Group mt="xs">

@@ -3,7 +3,7 @@ import "../components/table.css";
 
 const Table = ({ searchedData }) => {
   if (!searchedData || searchedData.length === 0) {
-    return <div className="h2" >No Data</div>;
+    return <div className="h2">No Data</div>;
   }
 
   return (

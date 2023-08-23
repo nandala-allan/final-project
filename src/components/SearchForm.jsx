@@ -2,7 +2,7 @@ import { Input, Button, Container, Flex, Space } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
 import Table from "./Table";
-import "../components/SearchForm.css";
+import "../components/Searchform.css";
 import Header from "./Header";
 
 const SearchForm = () => {

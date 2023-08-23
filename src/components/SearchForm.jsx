@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import "./App.css"; // Import your CSS file for styling
+
 
 function App() {
   const [responseData, setResponseData] = useState([]);
@@ -47,7 +47,7 @@ function App() {
       <h1 style={{fontSize:"30px"}}>Search For Case File</h1>
       <div className="search-container">
         <input
-        style={{border:"1px solid black",padding:"5px"}}
+        style={{border:"1px solid black",padding:"5px",borderRadius:"5px"}}
           type="text"
           placeholder="Enter name to search"
           value={inputValue}

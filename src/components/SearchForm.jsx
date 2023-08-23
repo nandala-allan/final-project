@@ -51,7 +51,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="">
+      <div className="container">
         <h1>Search for Case File</h1>
         <input
           type="text"

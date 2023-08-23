@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+import "../components/searchform.css";
 
 function App() {
   const [responseData, setResponseData] = useState([]);
@@ -50,7 +52,7 @@ function App() {
     <>
       <Header />
       <div className="">
-        <h1>Data Fetching </h1>
+        <h1>Search for Case File</h1>
         <input
           type="text"
           placeholder="Enter name to search"
@@ -61,7 +63,7 @@ function App() {
 
         {searchedData ? (
           <div>
-            <h2>Details for {searchedData.complainerName}:</h2>
+            <h2>Case file for {searchedData.complainerName}:</h2>
             <pre>
               {Object.entries(searchedData)
                 .filter(([key, value]) => value !== null)
@@ -76,6 +78,7 @@ function App() {
           <p>{searchMessage}</p>
         )}
       </div>
+      <Footer />
     </>
   );
 }

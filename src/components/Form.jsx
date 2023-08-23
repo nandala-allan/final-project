@@ -1,14 +1,12 @@
-import { FileInput, Input, TextInput, Checkbox } from "@mantine/core";
+import { FileInput, Input, TextInput } from "@mantine/core";
 import { useState } from "react";
 import { DateInput } from "@mantine/dates";
 import { Select } from "@mantine/core";
 import { Textarea } from "@mantine/core";
 import { NumberInput } from "@mantine/core";
 import { Button } from "@mantine/core";
-import { ActionIcon } from "@mantine/core";
-import { TimeInput } from "@mantine/dates";
-import { IconClock } from "@tabler/icons-react";
-import {  Radio,Group} from '@mantine/core';
+
+import { Radio, Group } from "@mantine/core";
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -24,7 +22,7 @@ function Form() {
     offence: "",
     victimName: "",
     victimTelephone: "",
-    victimsgender:"",
+    victimsgender: "",
     victimResidence: "",
     caseDetailes: "",
     gender: "",
@@ -45,21 +43,23 @@ function Form() {
     }
     setFormData({
       ...formData,
-      [name]:value
-    })
-  }
-  
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = {
       data: {
-         ...formData 
-        },
+        ...formData,
+      },
     };
 
     axios
-      .post("https://finalproject-strapi-back-end.onrender.com/api/final-projects", userData)
+      .post(
+        "https://finalproject-strapi-back-end.onrender.com/api/final-projects",
+        userData
+      )
       .then((response) => {
         console.log(response.data);
       });
@@ -242,7 +242,6 @@ function Form() {
               alignItems: "center",
             }}
           >
-          
             <TextInput
               name="victimTelephone"
               value={formData.victimTelephone}
@@ -254,22 +253,22 @@ function Form() {
               className="py-8 ..."
             />
 
-<Radio.Group
-            mt="md"
-            name="victimsgender"
-            value={formData.victimsgender}
-            label="sex"
-            description="select complainer's victimsgender "
-            withAsterisk
-            onChange={(value) =>
-              handleChanges({ target: { name: "victimsgender", value } })
-            }
-          >
-            <Group mt="xs">
-              <Radio value="male" label="Male" />
-              <Radio value="female" label="Female" />
-            </Group>
-          </Radio.Group>
+            <Radio.Group
+              mt="md"
+              name="victimsgender"
+              value={formData.victimsgender}
+              label="sex"
+              description="select complainer's victimsgender "
+              withAsterisk
+              onChange={(value) =>
+                handleChanges({ target: { name: "victimsgender", value } })
+              }
+            >
+              <Group mt="xs">
+                <Radio value="male" label="Male" />
+                <Radio value="female" label="Female" />
+              </Group>
+            </Radio.Group>
           </div>
           <TextInput
             name="victimResidence"
@@ -355,7 +354,6 @@ function Form() {
             padding: 20,
           }}
         >
-          
           <Radio.Group
             name="medicalAssistance1"
             value={formData.medicalAssistance1}
@@ -376,7 +374,7 @@ function Form() {
           OFFICER IN-CHARGE OF CASE
         </h1>
         <div>
-        <Select
+          <Select
             value={formData.rank}
             onChange={(value) =>
               handleChanges({ target: { name: "rank", value: value } })
@@ -391,7 +389,7 @@ function Form() {
             ]}
             size="md"
           />
-               <Select
+          <Select
             value={formData.officerName}
             onChange={(value) =>
               handleChanges({ target: { name: "officerName", value: value } })
@@ -407,7 +405,6 @@ function Form() {
             size="md"
           />
 
-         
           <TextInput
             name="policeStation"
             value={formData.policeStation}
@@ -420,11 +417,12 @@ function Form() {
           />
         </div>
 
-      <div>
-        <Button type="submit" className="mx-8 ...">SUBMIT FORM</Button>
-      </div>
+        <div>
+          <Button type="submit" className="mx-8 ...">
+            SUBMIT FORM
+          </Button>
+        </div>
       </form>
-  
     </div>
   );
 }

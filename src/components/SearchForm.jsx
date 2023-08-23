@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import "./App.css"; // Import your CSS file for styling
 
 function App() {
   const [responseData, setResponseData] = useState([]);
@@ -15,10 +16,8 @@ function App() {
     try {
       const response = await axios.get(
         "https://finalproject-strapi-back-end.onrender.com/api/final-projects"
-        
       );
       setResponseData(response.data.data);
-      console.log(response.data.data)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -44,20 +43,23 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Data Fetching </h1>
-      <input
-        type="text"
-        placeholder="Enter name to search"
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSearch}>Search</button>
+    <div className="app-container">
+      <h1 style={{fontSize:"30px"}}>Search For Case File</h1>
+      <div className="search-container">
+        <input
+        style={{border:"1px solid black",padding:"5px"}}
+          type="text"
+          placeholder="Enter name to search"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <button className="search-button" onClick={handleSearch}>Search</button>
+      </div>
 
       {searchedData ? (
-        <div>
+        <div className="details-container">
           <h2>Details for {searchedData.complainerName}:</h2>
-          <pre>
+          <div className="details-list">
             {Object.entries(searchedData)
               .filter(([key, value]) => value !== null)
               .map(([key, value]) => (
@@ -65,10 +67,10 @@ function App() {
                   <strong>{key}:</strong> {value}
                 </p>
               ))}
-          </pre>
+          </div>
         </div>
       ) : (
-        <p>{searchMessage}</p>
+        <p className="search-message">{searchMessage}</p>
       )}
     </div>
   );

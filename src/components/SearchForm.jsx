@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Header from "../components/Header";
 
 function App() {
   const [responseData, setResponseData] = useState([]);
@@ -15,10 +16,9 @@ function App() {
     try {
       const response = await axios.get(
         "https://finalproject-strapi-back-end.onrender.com/api/final-projects"
-        
       );
       setResponseData(response.data.data);
-      console.log(response.data.data)
+      console.log(response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -29,9 +29,12 @@ function App() {
   };
 
   const handleSearch = () => {
-    const filteredData = responseData.filter((item) =>
-      item.attributes.complainerName &&
-      item.attributes.complainerName.toLowerCase().includes(inputValue.toLowerCase())
+    const filteredData = responseData.filter(
+      (item) =>
+        item.attributes.complainerName &&
+        item.attributes.complainerName
+          .toLowerCase()
+          .includes(inputValue.toLowerCase())
     );
 
     if (filteredData.length > 0) {
@@ -44,33 +47,36 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Data Fetching </h1>
-      <input
-        type="text"
-        placeholder="Enter name to search"
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSearch}>Search</button>
+    <>
+      <Header />
+      <div className="">
+        <h1>Data Fetching </h1>
+        <input
+          type="text"
+          placeholder="Enter name to search"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <button onClick={handleSearch}>Search</button>
 
-      {searchedData ? (
-        <div>
-          <h2>Details for {searchedData.complainerName}:</h2>
-          <pre>
-            {Object.entries(searchedData)
-              .filter(([key, value]) => value !== null)
-              .map(([key, value]) => (
-                <p key={key}>
-                  <strong>{key}:</strong> {value}
-                </p>
-              ))}
-          </pre>
-        </div>
-      ) : (
-        <p>{searchMessage}</p>
-      )}
-    </div>
+        {searchedData ? (
+          <div>
+            <h2>Details for {searchedData.complainerName}:</h2>
+            <pre>
+              {Object.entries(searchedData)
+                .filter(([key, value]) => value !== null)
+                .map(([key, value]) => (
+                  <p key={key}>
+                    <strong>{key}:</strong> {value}
+                  </p>
+                ))}
+            </pre>
+          </div>
+        ) : (
+          <p>{searchMessage}</p>
+        )}
+      </div>
+    </>
   );
 }
 

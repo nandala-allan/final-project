@@ -1,115 +1,77 @@
-import { Input, Button, Container, Flex, Space } from "@mantine/core";
-import { IconSearch } from "@tabler/icons-react";
-import { useState } from "react";
-import Datatable from "./table";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const SearchForm = () => {
+function App() {
+  const [responseData, setResponseData] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [responseData, setResponseData] = useState(null);
   const [searchedData, setSearchedData] = useState(null);
+  const [searchMessage, setSearchMessage] = useState("");
 
-  const handleButtonClick = async () => {
+  useEffect(() => {
+    fetchData();
+  }, []); // Fetch data on component mount
+
+  const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:1337/api/final-projects"
+        "https://finalproject-strapi-back-end.onrender.com/api/final-projects"
+        
       );
-      //localhost:1337/api/final-projects
-      //reqres.in/api/login
-      console.log(response.data.data);
-
-      // setFormData({
-      //   caseDetails: response.data.caseDetails,
-      //   complainerAge: response.data.complainerAge,
-      //   complainerEmail: response.data.complainerEmail,
-      //   complainerId: response.data.complainerId,
-      //   complainerName: response.data.complainerName,
-      //   complainerPlaceOfBirth: response.data.complainerPlaceOfBirth,
-      //   complainerResidence: response.data.complainerResidence,
-      //   complainerTelephone: response.data.complainerTelephone,
-      //   createdAt: response.data.createdAt,
-      //   crimeScene: response.data.crimeScene,
-      //   gender: response.data.gender,
-      //   happenedDate: response.data.happenedDate,
-      //   happenedTime: response.data.happenedTime,
-      //   injuries: response.data.injuries,
-      //   medicalAssistance: response.data.medicalAssistance,
-      //   offence: response.data.offence,
-      //   officerName: response.data.officerName,
-      //   others: response.data.others,
-      //   policeStation: response.data.policeStation,
-      //   publishedAt: response.data.publishedAt,
-      //   rank: response.data.rank,
-      //   referenceNumber: response.data.referenceNumber,
-      //   regestredData: response.data.regestredData,
-      //   updatedAt: response.data.updatedAt,
-      //   victimName: response.data.victimName,
-      //   victimResidence: response.data.victimResidence,
-      //   victimTelephone: response.data.victimTelephone,
-      //   witnessName: response.data.witnessName,
-      //   witnessTel: response.data.witnessTel,
-      // });
-
       setResponseData(response.data.data);
-      // console.log(responseData);
-      const filteredData = responseData.filter((item) =>
-        item.attributes.complainerName
-          .toLowerCase()
-          .includes(inputValue.toLowerCase())
-      );
-
-      setSearchedData(filteredData);
+      console.log(response.data.data)
     } catch (error) {
-      // Handle errors here
       console.error("Error fetching data:", error);
     }
   };
-  // const getData = async () => {
 
-  // };
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
-  // getData();
+  const handleSearch = () => {
+    const filteredData = responseData.filter((item) =>
+      item.attributes.complainerName &&
+      item.attributes.complainerName.toLowerCase().includes(inputValue.toLowerCase())
+    );
 
-  // const handleSearch = () => {
-  //   if (responseData) {
-  //     // Filter the data based on the 'name' property
-  //     const filteredData = responseData.data.data.filter((item) =>
-  //       item.id.toLowerCase().includes(inputValue.toLowerCase())
-  //     );
-  //     setSearchedData(filteredData);
-  //   }
-  //   console.log(filteredData);
-  // };
-  const handleChenges = (e) => {
-    const inputValue = e.target.value;
-    setInputValue(inputValue);
+    if (filteredData.length > 0) {
+      setSearchedData(filteredData[0].attributes);
+      setSearchMessage("");
+    } else {
+      setSearchedData(null);
+      setSearchMessage("User not found");
+    }
   };
 
   return (
-    <>
-      <Container mt={120}>
-        <Flex direction={{ base: "column", sm: "row" }} gap="sm" align="center">
-          <Input
-            onChange={handleChenges}
-            icon={<IconSearch size={18} />}
-            placeholder="Search"
-            radius="sm"
-          />
+    <div>
+      <h1>Data Fetching </h1>
+      <input
+        type="text"
+        placeholder="Enter name to search"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
+      <button onClick={handleSearch}>Search</button>
 
-          <Button size="xs" radius="xl" onClick={handleButtonClick}>
-            Search
-          </Button>
-        </Flex>
-        <Space h="md" />
-      </Container>
-
-      {responseData && (
+      {searchedData ? (
         <div>
-          <h1>{`${inputValue}'s Data`}</h1>
-          <Datatable searchedData={searchedData} />
+          <h2>Details for {searchedData.complainerName}:</h2>
+          <pre>
+            {Object.entries(searchedData)
+              .filter(([key, value]) => value !== null)
+              .map(([key, value]) => (
+                <p key={key}>
+                  <strong>{key}:</strong> {value}
+                </p>
+              ))}
+          </pre>
         </div>
+      ) : (
+        <p>{searchMessage}</p>
       )}
-    </>
+    </div>
   );
-};
+}
 
-export default SearchForm;
+export default App;

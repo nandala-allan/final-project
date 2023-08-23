@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../components/searchform.css";
+import "../components/Searchform.css";
 
 function App() {
   const [responseData, setResponseData] = useState([]);

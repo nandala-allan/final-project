@@ -11,34 +11,36 @@ import { Radio, Group } from "@mantine/core";
 
 function Form() {
   const [formData, setFormData] = useState({
-    referenceNumber: "",
-    complainerName: "",
-    regestredData: "",
-    complainerAge: "",
-    complainerTelephone: "",
-    complainersGender: "",
-    complainerResidence: "",
-    complainerId: "",
-    complainerEmail: "",
-    offence: "",
-    victimName: "",
-    victimTelephone: "",
-    victimsgender: "",
-    victimResidence: "",
-    caseDetailes: "",
-    gender: "",
-    happenedDate: "",
-    crimeScene: "",
-    witnessName: "",
-    witnessTel: "",
-    injuries: "",
-    medicalAssistance1: "",
+    // referenceNumber: "",
+    // complainerName: "",
+    // regestredData: "",
+    // complainerAge: "",
+    // complainerTelephone: "",
+    // complainersGender: "",
+    // complainerResidence: "",
+    // complainerId: "",
+    // complainerEmail: "",
+    // offence: "",
+    // victimName: "",
+    // victimTelephone: "",
+    // victimsgender: "",
+    // victimResidence: "",
+    // caseDetailes: "",
+    // gender: "",
+    // happenedDate: "",
+    // crimeScene: "",
+    // witnessName: "",
+    // witnessTel: "",
+    // injuries: "",
+    // medicalAssistance1: "",
     rank: "",
     officerName: "",
     policeStation: "",
   });
+
   const handleChanges = (e) => {
     const { name, value } = e.target;
+    console.log(e.target.value);
     if (!e.target) {
       return null;
     }

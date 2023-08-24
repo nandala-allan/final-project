@@ -76,3 +76,9 @@ img {
     width: 50%;
   }
 }
+
+@media (max-width: 425px) {
+  .img img {
+    width: 20%;
+  }
+}

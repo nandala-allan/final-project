@@ -60,9 +60,14 @@ span {
   }
   header h1 {
     font-size: 18px;
+    display: none;
   }
 
-  header h3 {
+  header p {
     font-size: 14px;
+    display: none;
+  }
+  .nav img {
+    width: 10%;
   }
 }

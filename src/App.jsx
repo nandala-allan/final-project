@@ -1,11 +1,6 @@
 import LoginButton from "./components/LoginButton";
 import { useEffect } from "react";
-import { useNavigate, Routes, Route } from "react-router-dom";
-// import LogOutButton from "./components/LogOutbutton";
-import Home from "./components/Home";
-import SearchForm from "./components/SearchForm";
-import Form from "./components/Form";
-
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -21,11 +16,6 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="home" element={<Home />} />
-        <Route path="form" element={<Form />} />
-        <Route path="searchForm" element={<SearchForm />} />
-      </Routes>
       <main className="column">
         <div>
           <h2 className="font-bold text-3xl text-white">Kanzu Police Force</h2>

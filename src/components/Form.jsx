@@ -1,4 +1,3 @@
-
 import { FileInput, Input, TextInput } from "@mantine/core";
 import { useState } from "react";
 import { DateInput } from "@mantine/dates";
@@ -37,6 +36,8 @@ function Form() {
     officerName: "",
     policeStation: "",
   });
+
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const handleChanges = (e) => {
     const { name, value } = e.target;
     if (!e.target) {
@@ -64,9 +65,49 @@ function Form() {
       .then((response) => {
         console.log(response.data);
       });
+    setFormData({
+      referenceNumber: "",
+      complainerName: "",
+      regestredData: "",
+      complainerAge: "",
+      complainerTelephone: "",
+      complainersGender: "",
+      complainerResidence: "",
+      complainerId: "",
+      complainerEmail: "",
+      offence: "",
+      victimName: "",
+      victimTelephone: "",
+      victimsgender: "",
+      victimResidence: "",
+      caseDetailes: "",
+      gender: "",
+      happenedDate: "",
+      crimeScene: "",
+      witnessName: "",
+      witnessTel: "",
+      injuries: "",
+      medicalAssistance1: "",
+      rank: "",
+      officerName: "",
+      policeStation: "",
+      // ... (clear other form fields)
+    });
+
+    setFormSubmitted(true);
   };
   return (
     <div style={{ width: "1440px", padding: 50, margin: "auto" }}>
+      {formSubmitted && ( // Display a notification after form submission
+        <Notification
+          title="Form Submitted"
+          color="teal"
+          shadow
+          onClose={() => setFormSubmitted(false)}
+        >
+          Your case file has been submitted successfully.
+        </Notification>
+      )}
       <form onSubmit={handleSubmit}>
         <h1 style={{ textAlign: "center", padding: 20, fontWeight: 600 }}>
           COMPLAINER
@@ -79,7 +120,7 @@ function Form() {
           }}
         >
           <FileInput
-            placeholder="Pick file"
+            placeholder="Input image"
             // name="complainerPhoto"
             value={formData.complainerPhoto}
             onChange={(phote) =>
@@ -208,7 +249,7 @@ function Form() {
             margin: 10,
           }}
         >
-          VICTIM DETAILS
+          SUSPECT DETAILS
         </h1>
         <div>
           <Select
@@ -247,7 +288,7 @@ function Form() {
               name="victimTelephone"
               value={formData.victimTelephone}
               onChange={handleChanges}
-              placeholder="Pick file"
+              placeholder="suspect contact"
               label="Telephone "
               size="md"
               withAsterisk
@@ -275,7 +316,7 @@ function Form() {
             name="victimResidence"
             value={formData.victimResidence}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="Suspects residence"
             label="Place Of Residence"
             size="md"
             withAsterisk
@@ -286,7 +327,7 @@ function Form() {
             value={formData.caseDetailes}
             onChange={handleChanges}
             placeholder="Tell Us What Happened"
-            label="Case Detail"
+            label="Case Details"
             size="xl"
             withAsterisk
           />
@@ -322,7 +363,7 @@ function Form() {
             name="witnessName"
             value={formData.witnessName}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="Wintness name"
             label="Name"
             size="md"
             withAsterisk
@@ -344,7 +385,7 @@ function Form() {
           name="injuries"
           value={formData.injuries}
           onChange={handleChanges}
-          placeholder="Pick file"
+          placeholder="Sustained injuries?"
           label="Injuries?(If Any Specify)"
           size="md"
           withAsterisk
@@ -410,7 +451,7 @@ function Form() {
             name="policeStation"
             value={formData.policeStation}
             onChange={handleChanges}
-            placeholder="Pick file"
+            placeholder="locatioin of police station"
             label="Police Station"
             size="md"
             withAsterisk
@@ -419,7 +460,7 @@ function Form() {
         </div>
 
         <div>
-          <Button type="submit" className="mx-8 ...">
+          <Button type="submit" className="bg-blue-500">
             SUBMIT FORM
           </Button>
         </div>

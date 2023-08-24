@@ -17,30 +17,30 @@
 //   );
 // }
 
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginButton() {
-  const { loginWithRedirect, isAuthenticated, error } = useAuth0();
-  console.log(error?.message);
+  // const { loginWithRedirect, isAuthenticated, error } = useAuth0();
+  // console.log(error?.message);
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    if (!isAuthenticated) {
-      loginWithRedirect();
-    } else {
-      navigate("/Home");
-    }
+    // if (!isAuthenticated) {
+    //   loginWithRedirect();
+    // } else {
+    navigate("/Home");
+    // }
   };
 
   return (
-    !isAuthenticated && (
-      <button
-        className="bg-blue-500 px-4 py-3 font-medium uppercase text-sm text-white"
-        onClick={handleLoginClick}
-      >
-        Sign In
-      </button>
-    )
+    // !isAuthenticated && (
+    <button
+      className="bg-blue-500 px-4 py-3 font-medium uppercase text-sm text-white"
+      onClick={handleLoginClick}
+    >
+      Sign In
+    </button>
+    // )
   );
 }

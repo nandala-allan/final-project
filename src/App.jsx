@@ -1,6 +1,6 @@
 import LoginButton from "./components/LoginButton";
 import { useEffect } from "react";
-import { useNavigate, Routes, Route, Outlet } from "react-router-dom";
+import { useNavigate, Routes, Route } from "react-router-dom";
 // import LogOutButton from "./components/LogOutbutton";
 import Home from "./components/Home";
 import SearchForm from "./components/SearchForm";
@@ -22,10 +22,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" index element={<Outlet />} />
-        <Route path="/home" index element={<Home />} />
-        <Route path="/form" element={<Form />} />
-        <Route path="/searchForm" element={<SearchForm />} />
+        <Route path="home" element={<Home />} />
+        <Route path="form" element={<Form />} />
+        <Route path="searchForm" element={<SearchForm />} />
       </Routes>
       <main className="column">
         <div>

@@ -41,7 +41,7 @@ function App() {
       setSearchMessage("");
     } else {
       setSearchedData(null);
-      setSearchMessage("User not found");
+      setSearchMessage("Case file not found");
     }
   };
 

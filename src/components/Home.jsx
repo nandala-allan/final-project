@@ -5,14 +5,12 @@ import Footer from "./Footer";
 // import Search from "./Search";
 // import { func } from "prop-types";
 function Home() {
-  let redirect = useNavigate();
+  let navigate = useNavigate();
 
-  function form() {
-    redirect("/form");
-  }
-  function naviget() {
-    redirect("/SearchForm");
-  }
+  const routeToFormPage = () => navigate("/form");
+
+  const routeToSearchForm = () => navigate("/SearchForm");
+
   return (
     <>
       <Header />
@@ -31,7 +29,7 @@ function Home() {
             <button
               className="bg-blue-500 px-4 py-3 font-medium uppercase text-sm"
               type="submit"
-              onClick={form}
+              onClick={() => routeToFormPage()}
             >
               Generate New Case Form
             </button>
@@ -43,7 +41,7 @@ function Home() {
             <button
               className="px-4 py-3 font-medium uppercase text-sm bg-blue-500"
               type="submit"
-              onClick={naviget}
+              onClick={() => routeToSearchForm()}
             >
               Search
             </button>

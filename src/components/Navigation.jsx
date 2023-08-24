@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 // import LogOutButton from "./components/LogOutbutton";
-import Home from "./components/Home";
-import SearchForm from "./components/SearchForm";
-import Form from "./components/Form";
+import Home from "../components/Home";
+import SearchForm from "../components/SearchForm";
+import Form from "../components/Form";
 
 const Navigation = () => {
   return (

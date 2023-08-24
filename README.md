@@ -15,4 +15,15 @@ This will lead you to the form structure page which has fields ready to input da
 Upon clicking the submission button, the data is then stored in the backend strapi servers to be used later.
 
 4. Search Form:
-The search form button is a one that will lead you to a search page 
+The search form button is a one that will lead you to a search page where an inut field is used to retrieve data of any previous cases captured. This can be used by law enforcement agencies to process data for rulings and statistics also for printing.
+
+The function returns data as expected.
+
+## Technologies Used
+React(Frontend)
+Vite
+Fetch API(For making requests)
+CSS for styling.
+
+## Installation
+To run the application, you will have to intall the NPM directories and the different dependencies, upon which you will have to "npm run dev" to render the application in the chrome browser.

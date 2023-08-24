@@ -51,11 +51,13 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userData = {
-      data: {
-        ...formData,
-      },
-    };
+    // const userData = {
+    //   data: {
+    //     ...formData,
+    //   },
+    // };
+
+    const userData = formData;
 
     axios
       .post(

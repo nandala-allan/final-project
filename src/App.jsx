@@ -1,12 +1,20 @@
 import LoginButton from "./components/LoginButton";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import LogOutButton from "./components/LogOutbutton";
 // import Home from "./components/Home";
 
 import "./App.css";
-// import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 function App() {
-  // const { isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/Home");
+    }
+  }, [isAuthenticated, navigate]);
 
+  const navigate = useNavigate();
   return (
     <>
       <main className="column">

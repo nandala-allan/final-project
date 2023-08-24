@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 // import SearchForm from "./components/SearchForm";
 import "./index.css";
 import { Auth0Provider } from "@auth0/auth0-react";
-import App from "./App";
+// import App from "./App";
 import Navigation from "./components/Navigation";
 // import Home from "./components/Home";
 
@@ -42,7 +42,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       {/* <RouterProvider router={router} /> */}
       <BrowserRouter>
         <Navigation />
-        <App />
+        {/* <App /> */}
       </BrowserRouter>
     </Auth0Provider>
   </React.StrictMode>

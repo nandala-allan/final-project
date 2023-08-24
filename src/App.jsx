@@ -8,13 +8,13 @@ import "./App.css";
 import { useAuth0 } from "@auth0/auth0-react";
 function App() {
   const { isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/Home");
     }
   }, [isAuthenticated, navigate]);
 
-  const navigate = useNavigate();
   return (
     <>
       <main className="column">

@@ -1,4 +1,4 @@
-import { FileInput, Input, TextInput } from "@mantine/core";
+import { FileInput, Input, TextInput, Text } from "@mantine/core";
 import { useState } from "react";
 import { DateInput } from "@mantine/dates";
 import { Select } from "@mantine/core";
@@ -99,14 +99,14 @@ function Form() {
   return (
     <div style={{ width: "1440px", padding: 50, margin: "auto" }}>
       {formSubmitted && ( // Display a notification after form submission
-        <Notification
+        <Text
           title="Form Submitted"
           color="teal"
           shadow
           onClose={() => setFormSubmitted(false)}
         >
           Your case file has been submitted successfully.
-        </Notification>
+        </Text>
       )}
       <form onSubmit={handleSubmit}>
         <h1 style={{ textAlign: "center", padding: 20, fontWeight: 600 }}>

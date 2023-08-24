@@ -28,7 +28,7 @@ function Home() {
             <p className="text-lg">Make a complaint about a crime</p>
             <button
               className="bg-blue-500 px-4 py-3 font-medium uppercase text-sm"
-              type="submit"
+              // type="submit"
               onClick={() => routeToFormPage()}
             >
               Generate New Case Form
@@ -40,7 +40,7 @@ function Home() {
             <p className="text-lg">Search for a case form</p>
             <button
               className="px-4 py-3 font-medium uppercase text-sm bg-blue-500"
-              type="submit"
+              // type="submit"
               onClick={() => routeToSearchForm()}
             >
               Search

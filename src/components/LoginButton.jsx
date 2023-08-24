@@ -21,7 +21,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginButton() {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, error } = useAuth0();
+  console.log(error?.message);
   const navigate = useNavigate();
 
   const handleLoginClick = () => {

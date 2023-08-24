@@ -6,16 +6,16 @@ import Form from "./components/Form";
 import SearchForm from "./components/SearchForm";
 import "./index.css";
 import { Auth0Provider } from "@auth0/auth0-react";
-// import App from "./App";
+import App from "./App";
 import Home from "./components/Home";
 // const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 // const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 const router = createBrowserRouter([
-  // {
-  //   path: "/",
-  //   element: <App />,
-  // },
+  {
+    path: "/",
+    element: <App />,
+  },
   {
     path: "/Home",
     element: <Home />,
@@ -41,7 +41,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       }}
     >
       <RouterProvider router={router} />
-      {/* <App/> */}
+      <Home />
     </Auth0Provider>
   </React.StrictMode>
 );

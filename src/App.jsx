@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Outlet />} />
+        <Route path="/" index element={<Outlet />} />
         <Route path="/home" index element={<Home />} />
         <Route path="/form" element={<Form />} />
         <Route path="/searchForm" element={<SearchForm />} />

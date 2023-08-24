@@ -41,7 +41,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       }}
     >
       <RouterProvider router={router} />
-      <Home />
+      {/* <Home /> */}
     </Auth0Provider>
   </React.StrictMode>
 );

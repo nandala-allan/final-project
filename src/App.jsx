@@ -16,7 +16,8 @@ function App() {
     if (isAuthenticated) {
       navigate("/home");
     }
-  }, [isAuthenticated, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   return (
     <>

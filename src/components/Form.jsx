@@ -62,7 +62,7 @@ function Form() {
     axios
       .post(
         "https://finalproject-strapi-back-end.onrender.com/api/final-projects",
-        userData
+        { data: userData }
       )
       .then((response) => {
         console.log(response.data);
